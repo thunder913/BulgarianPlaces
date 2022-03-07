@@ -53,7 +53,7 @@
 
                             </StackLayout>
 
-                            <Button Text="SIGN IN" BackgroundColor="blue" TextColor="White" CornerRadius="30" />
+                            <Button Command="{Binding LoginCommand}" Text="SIGN IN" BackgroundColor="blue" TextColor="White" CornerRadius="30" />
                             <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                                 <Label Text="Still Not Connected ?" TextColor="DarkGray" FontSize="Small"/>
                                 <Button Command="{Binding RegisterCommand}" BackgroundColor="Transparent" Padding="0" WidthRequest="60" HeightRequest="20" Text="Sign Up" TextColor="blue" FontAttributes="Bold" FontSize="Small" />

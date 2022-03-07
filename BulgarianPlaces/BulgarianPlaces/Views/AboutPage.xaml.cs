@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BulgarianPlaces.ViewModels;
+using System;
 using System.ComponentModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -10,6 +11,7 @@ namespace BulgarianPlaces.Views
         public AboutPage()
         {
             InitializeComponent();
+            this.BindingContext = new AboutViewModel();
         }
     }
 }

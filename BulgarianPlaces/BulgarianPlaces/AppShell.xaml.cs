@@ -9,18 +9,19 @@ namespace BulgarianPlaces
 {
     public partial class AppShell : Xamarin.Forms.Shell
     {
-        public bool IsLoggedIn { get; set; }
+        public static bool IsLoggedIn { get; set; } = true;
         public AppShell()
         {
             InitializeComponent();
             Routing.RegisterRoute(nameof(ItemDetailPage), typeof(ItemDetailPage));
             Routing.RegisterRoute(nameof(NewItemPage), typeof(NewItemPage));
             Routing.RegisterRoute(nameof(LoginPage), typeof(LoginPage));
-            Routing.RegisterRoute(nameof(LoginPage), typeof(LoginPage));
-
+            Routing.RegisterRoute(nameof(AboutPage), typeof(AboutPage));
+            Routing.RegisterRoute(nameof(RegisterPage), typeof(RegisterPage));
+            Routing.RegisterRoute(nameof(ProfilePage), typeof(ProfilePage));
             //IsLoggedIn = Request To Api to check whether user is logged in
 
-            if (!this.IsLoggedIn)
+            if (!IsLoggedIn)
             {
                 Task.Run(async () =>
                 {

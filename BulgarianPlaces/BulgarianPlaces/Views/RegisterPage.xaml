@@ -10,8 +10,8 @@
     <StackLayout BackgroundColor="#e6e6e6">
         <Grid>
             <StackLayout Padding="0" Margin="0" HorizontalOptions="FillAndExpand">
-                <Frame HeightRequest="750" BackgroundColor="blue" Padding="0" Margin="0">
-                    <Image Source="https://drumivdumi.com/wp-content/uploads/2017/12/zabelejitelnosti_v_bulgaria2017.jpg" Aspect="AspectFill" Margin="0"/>
+                <Frame HeightRequest="750" BackgroundColor="#123ac7" Padding="0" Margin="0">
+                    <Image Source="https://opoznaybulgaria.com/wp-content/uploads/2019/05/Opoznay-Bulgaria-1-pic-logo.jpg" Aspect="AspectFill" Margin="0"/>
                 </Frame>
             </StackLayout>
             <StackLayout Padding="0" Margin="10,150,10,0" HorizontalOptions="FillAndExpand">
@@ -76,7 +76,7 @@
                             </Frame>
 
 
-                            <Button Text="SIGN UP" BackgroundColor="blue" TextColor="White" CornerRadius="30" />
+                                <Button Text="SIGN UP" BackgroundColor="#123ac7" TextColor="White" CornerRadius="30" />
                             <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                                 <Label Text="Already have an account?" TextColor="DarkGray" FontSize="Small"/>
                                 <Button Command="{Binding RegisterCommand}" BackgroundColor="Transparent" Padding="0" WidthRequest="60" HeightRequest="20" Text="Sign In" TextColor="blue" FontAttributes="Bold" FontSize="Small" />
