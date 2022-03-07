@@ -4,12 +4,88 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             xmlns:local="clr-namespace:BulgarianPlaces.Models"
              x:Class="BulgarianPlaces.Views.RegisterPage"
              Shell.NavBarIsVisible="False">
-    <ContentPage.Content>
-        <StackLayout Padding="10,0,10,0" VerticalOptions="Center">
-            <Entry Placeholder="Test"/>
-            <Button VerticalOptions="Center" Text="Register" Command="{Binding RegisterCommand}"/>
-        </StackLayout>
-    </ContentPage.Content>
+    <StackLayout BackgroundColor="#e6e6e6">
+        <Grid>
+            <StackLayout Padding="0" Margin="0" HorizontalOptions="FillAndExpand">
+                <Frame HeightRequest="750" BackgroundColor="blue" Padding="0" Margin="0">
+                    <Image Source="https://drumivdumi.com/wp-content/uploads/2017/12/zabelejitelnosti_v_bulgaria2017.jpg" Aspect="AspectFill" Margin="0"/>
+                </Frame>
+            </StackLayout>
+            <StackLayout Padding="0" Margin="10,150,10,0" HorizontalOptions="FillAndExpand">
+                <Frame CornerRadius="25" BackgroundColor="White"  HasShadow="True" Padding="0" Margin="0">
+                    <ScrollView>
+                    <StackLayout>
+                        <StackLayout Margin="10">
+                            <Label Text="SIGN UP" TextColor="Black" HorizontalOptions="CenterAndExpand" FontAttributes="Bold"/>
+                        </StackLayout>
+
+                        <StackLayout Padding="0" Margin="15,10">
+
+                            <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                                <StackLayout Orientation="Horizontal">
+                                    <Frame BackgroundColor="SkyBlue" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
+                                        <Image Source="https://www.findool.com/images/avatars/avatar.png" Aspect="AspectFill" Margin="0"/>
+                                    </Frame>
+
+                                    <local:CustomEntry Placeholder="Email" TextColor="black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                                </StackLayout>
+                            </Frame>
+
+                                <!--<Frame BackgroundColor="Transparent" BorderColor="DarkGray" Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                                <StackLayout Orientation="Horizontal">
+                                    <Frame BackgroundColor="SkyBlue" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
+                                        <Image Source="https://www.findool.com/images/avatars/avatar.png" Aspect="AspectFill" Margin="0"/>
+                                    </Frame>
+
+                                    <local:CustomEntry Placeholder="First Name" TextColor="black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                                </StackLayout>
+                            </Frame>
+
+                                <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                                <StackLayout Orientation="Horizontal">
+                                    <Frame BackgroundColor="SkyBlue" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
+                                        <Image Source="https://www.findool.com/images/avatars/avatar.png" Aspect="AspectFill" Margin="0"/>
+                                    </Frame>
+
+                                    <local:CustomEntry Placeholder="Last Name" TextColor="black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                                </StackLayout>
+                            </Frame>-->
+
+                            <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                                <StackLayout Orientation="Horizontal">
+                                    <Frame BackgroundColor="SkyBlue" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
+                                        <Image Source="https://images.all-free-download.com/images/graphicthumb/lock_icon_6813906.jpg" Aspect="AspectFill" Margin="0"/>
+                                    </Frame>
+
+                                    <local:CustomEntry Placeholder="Password" IsPassword="True" TextColor="black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                                </StackLayout>
+                            </Frame>
+
+
+                            <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                                <StackLayout Orientation="Horizontal">
+                                    <Frame BackgroundColor="SkyBlue" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
+                                        <Image Source="https://images.all-free-download.com/images/graphicthumb/lock_icon_6813906.jpg" Aspect="AspectFill" Margin="0"/>
+                                    </Frame>
+
+                                    <local:CustomEntry Placeholder="Confirm Password" IsPassword="True" TextColor="black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                                </StackLayout>
+                            </Frame>
+
+
+                            <Button Text="SIGN UP" BackgroundColor="blue" TextColor="White" CornerRadius="30" />
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                                <Label Text="Already have an account?" TextColor="DarkGray" FontSize="Small"/>
+                                <Button Command="{Binding RegisterCommand}" BackgroundColor="Transparent" Padding="0" WidthRequest="60" HeightRequest="20" Text="Sign In" TextColor="blue" FontAttributes="Bold" FontSize="Small" />
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                    </ScrollView>
+                </Frame>
+            </StackLayout>
+        </Grid>
+    </StackLayout>
 </ContentPage>

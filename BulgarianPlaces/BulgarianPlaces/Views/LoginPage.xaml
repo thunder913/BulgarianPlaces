@@ -17,10 +17,7 @@
             </StackLayout>
             <StackLayout Padding="0" Margin="10,150,10,0" HorizontalOptions="FillAndExpand">
                 <Frame CornerRadius="25" BackgroundColor="White" HeightRequest="300" HasShadow="True" Padding="0" Margin="0">
-
                     <StackLayout>
-
-
                         <StackLayout Margin="10">
                             <Label Text="SIGN IN" TextColor="Black" HorizontalOptions="CenterAndExpand" FontAttributes="Bold"/>
                         </StackLayout>
@@ -62,10 +59,7 @@
                                 <Button Command="{Binding RegisterCommand}" BackgroundColor="Transparent" Padding="0" WidthRequest="60" HeightRequest="20" Text="Sign Up" TextColor="blue" FontAttributes="Bold" FontSize="Small" />
                             </StackLayout>
                         </StackLayout>
-
-
                     </StackLayout>
-
                 </Frame>
             </StackLayout>
         </Grid>
