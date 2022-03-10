@@ -3,10 +3,21 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BulgarianPlaces.Views.Ranking.LastWeekRanking">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Last week"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ListView x:Name="PeopleView"
+            ItemsSource="{Binding People}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid ColumnSpacing="500">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="15*"/>
+                            </Grid.RowDefinitions>
+                            <Label Text="{Binding Name}" HorizontalOptions="StartAndExpand" Padding="60, 0, 0, 0" VerticalOptions="Center"/>
+                            <Image Source="{Binding Image}" HorizontalOptions="Start" WidthRequest="50" VerticalOptions="Center"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </ContentPage.Content>
 </ContentPage>

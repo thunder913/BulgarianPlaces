@@ -4,7 +4,7 @@
              x:Class="BulgarianPlaces.Views.Ranking.AllTimeRankingPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="All Time"
+            <Label Text="All time"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
         </StackLayout>
