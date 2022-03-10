@@ -1,5 +1,7 @@
-﻿using BulgarianPlaces.ViewModels;
+﻿using BulgarianPlaces.Handlers;
+using BulgarianPlaces.ViewModels;
 using BulgarianPlaces.Views;
+using BulgarianPlaces.Views.Ranking;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -19,6 +21,13 @@ namespace BulgarianPlaces
             Routing.RegisterRoute(nameof(AboutPage), typeof(AboutPage));
             Routing.RegisterRoute(nameof(RegisterPage), typeof(RegisterPage));
             Routing.RegisterRoute(nameof(ProfilePage), typeof(ProfilePage));
+
+            //Ranking pages
+            Routing.RegisterRoute(nameof(LastWeekRanking), typeof(LastWeekRanking));
+            Routing.RegisterRoute(nameof(LastMonthRanking), typeof(LastMonthRanking));
+            Routing.RegisterRoute(nameof(LastYearRanking), typeof(LastYearRanking));
+            Routing.RegisterRoute(nameof(AllTimeRankingPage), typeof(AllTimeRankingPage));
+
             //IsLoggedIn = Request To Api to check whether user is logged in
 
             if (!IsLoggedIn)

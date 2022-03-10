@@ -2,16 +2,37 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BulgarianPlaces.Views.AboutPage"
-             xmlns:vm="clr-namespace:BulgarianPlaces.ViewModels"
+             xmlns:vm="clr-namespace:BulgarianPlaces.ViewModels" 
+             xmlns:controls="clr-namespace:BulgarianPlaces.Handlers"
              Title="{Binding Title}">
-    
+
+    <Shell.SearchHandler>
+        <controls:MySearchHandler
+            Command="{Binding PerformSearch}"
+            ShowsResults="True"
+            Placeholder="Search here...">
+            <controls:MySearchHandler.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.15*" />
+                            <ColumnDefinition Width="0.85*" />
+                        </Grid.ColumnDefinitions>
+                        <Image Source="{Binding ImageUrl}"
+                               Aspect="AspectFill"
+                               HeightRequest="40"
+                               WidthRequest="40" />
+                        <Label Grid.Column="1"
+                               Text="{Binding Name}"
+                               FontAttributes="Bold" />
+                    </Grid>
+                </DataTemplate>
+            </controls:MySearchHandler.ItemTemplate>
+        </controls:MySearchHandler>
+    </Shell.SearchHandler>
     <ContentPage.BindingContext>
         <vm:AboutViewModel />
     </ContentPage.BindingContext>
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="test">
-        </ToolbarItem>
-    </ContentPage.ToolbarItems>
     <ContentPage.Resources>
         <ResourceDictionary>
             <Color x:Key="Accent">#96d1ff</Color>

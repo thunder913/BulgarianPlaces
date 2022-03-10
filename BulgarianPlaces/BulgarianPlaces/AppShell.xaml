@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Shell xmlns="http://xamarin.com/schemas/2014/forms" 
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-       xmlns:local="clr-namespace:BulgarianPlaces.Views"
+       xmlns:local="clr-namespace:BulgarianPlaces.Views" 
+       xmlns:ranking="clr-namespace:BulgarianPlaces.Views.Ranking" 
        Title="BulgarianPlaces"
+       xmlns:controls="clr-namespace:BulgarianPlaces.Handlers"
        x:Class="BulgarianPlaces.AppShell">
 
     <!--
@@ -10,7 +12,6 @@
     
         https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/
     -->
-
     <Shell.Resources>
         <ResourceDictionary>
             <Style x:Key="BaseStyle" TargetType="Element">
@@ -30,9 +31,23 @@
     </Shell.Resources>
 
     <TabBar>
-        <ShellContent Title="About" Icon="icon_about.png" Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
-        <ShellContent Title="Browse" Icon="icon_feed.png" ContentTemplate="{DataTemplate local:ItemsPage}" />
-        <ShellContent Title="Profile" Icon="icon_feed.png" ContentTemplate="{DataTemplate local:ProfilePage}" />
+
+        <Tab Title="Ranking" Icon="sign.png" Route="RankingPage" >
+            <ShellContent Title="Last week"
+                         ContentTemplate="{DataTemplate ranking:LastWeekRanking}" />
+            <ShellContent Title="Last Month"
+                         ContentTemplate="{DataTemplate ranking:LastMonthRanking}" />
+            <ShellContent Title="Last Yearly"
+                         ContentTemplate="{DataTemplate ranking:LastYearRanking}" />
+            <ShellContent Title="All time"
+                         ContentTemplate="{DataTemplate ranking:AllTimeRankingPage}" />
+        </Tab>
+        <Tab Title="Browse" Icon="icon_feed.png" >
+            <ShellContent ContentTemplate="{DataTemplate local:ItemsPage}"/>
+        </Tab>
+        <Tab Title="All time" Icon="icon_feed.png"  >
+            <ShellContent ContentTemplate="{DataTemplate local:ProfilePage}"/>
+        </Tab>
     </TabBar>
 
     <!--
