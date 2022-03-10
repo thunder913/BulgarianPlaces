@@ -15,6 +15,7 @@ namespace BulgarianPlaces.Views.Ranking
         public AllTimeRankingPage()
         {
             InitializeComponent();
+            Title = "Ranking";
         }
     }
 }
