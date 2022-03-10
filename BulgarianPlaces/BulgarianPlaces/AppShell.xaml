@@ -32,7 +32,7 @@
 
     <TabBar>
 
-        <Tab Title="Ranking" Icon="sign.png" Route="RankingPage" >
+        <Tab Title="Ranking" Icon="ranking.png" Route="RankingPage" >
             <ShellContent Title="Last week"
                          ContentTemplate="{DataTemplate ranking:LastWeekRanking}" />
             <ShellContent Title="Last Month"
@@ -42,10 +42,13 @@
             <ShellContent Title="All time"
                          ContentTemplate="{DataTemplate ranking:AllTimeRankingPage}" />
         </Tab>
-        <Tab Title="Browse" Icon="icon_feed.png" >
+        <Tab Title="Admin" Icon="admin.png"  >
+            <ShellContent ContentTemplate="{DataTemplate local:ProfilePage}"/>
+        </Tab>
+        <Tab Title="Search" Icon="search.png" >
             <ShellContent ContentTemplate="{DataTemplate local:ItemsPage}"/>
         </Tab>
-        <Tab Title="All time" Icon="icon_feed.png"  >
+        <Tab Title="Profile" Icon="profile.png"  >
             <ShellContent ContentTemplate="{DataTemplate local:ProfilePage}"/>
         </Tab>
     </TabBar>
