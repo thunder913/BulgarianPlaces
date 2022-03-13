@@ -46,7 +46,7 @@
             <ShellContent ContentTemplate="{DataTemplate local:ProfilePage}"/>
         </Tab>
         <Tab Title="Search" Icon="search.png" >
-            <ShellContent ContentTemplate="{DataTemplate local:ItemsPage}"/>
+            <ShellContent ContentTemplate="{DataTemplate local:SearchPage}"/>
         </Tab>
         <Tab Title="Profile" Icon="profile.png"  >
             <ShellContent ContentTemplate="{DataTemplate local:ProfilePage}"/>

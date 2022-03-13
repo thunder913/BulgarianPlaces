@@ -2,19 +2,108 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BulgarianPlaces.Views.ProfilePage"
-             xmlns:vm="clr-namespace:BulgarianPlaces.ViewModels"
-             Title="{Binding Title}">
+             Title="{Binding Title}"
+             xmlns:local="clr-namespace:BulgarianPlaces.ViewModels">
 
-    <ContentPage.BindingContext>
-        <vm:ProfileViewModel />
-    </ContentPage.BindingContext>
     
     <ContentPage.Content>
-        <StackLayout>
-            <SearchBar Placeholder="Search"/>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Margin="10,10,10,0">
+        <Grid
+            RowSpacing="20"
+            >
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Frame
+                    Padding="0"
+                    WidthRequest="100"
+                    HeightRequest="100"
+                    BackgroundColor="Transparent"
+                    CornerRadius="100"
+                    BorderColor="Transparent"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    IsClippedToBounds="True"
+                    Grid.Column="0">
+                <Image 
+                       Aspect="Fill"
+                       Source="admin.png"
+                       />
+
+            </Frame>
+            <Label Grid.Column="1" Text="Andon Gorchov"
+                       FontSize="24"
+                       VerticalOptions="CenterAndExpand"
+                       Margin="25, 0, 0, 0"
+                       FontAttributes="Bold"
+                       TextColor="Black"/>
+            <Label
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Text="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,"/>
+            <Grid 
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    RowSpacing="-70"
+                    Margin="0, -25, 0, 0">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label HorizontalOptions="CenterAndExpand" Text="80" Grid.Column="0" Grid.Row="0" FontSize="30"/>
+                <Label HorizontalOptions="CenterAndExpand" Text="visited" Grid.Column="0" Grid.Row="1" FontSize="18"/>
+                <Label HorizontalOptions="CenterAndExpand" Text="80" Grid.Column="1" Grid.Row="0" FontSize="30"/>
+                <Label HorizontalOptions="CenterAndExpand" Text="this month" Grid.Column="1" Grid.Row="1" FontSize="18"/>
+            </Grid>
+                <ListView x:Name="PlacesVisited"
+                    ItemsSource="{Binding Places}"
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Margin="0, -70, 0, 0"
+                    ItemTapped="OnItemSelected"
+                    >
+                    <ListView.Header>
+                        <StackLayout Orientation="Horizontal" VerticalOptions="Start">
+                            <Label Text="Place" HorizontalOptions="StartAndExpand"/>
+                            <Label Text="Rating" HorizontalOptions="Center"/>
+                            <Label Text="Date" HorizontalOptions="EndAndExpand"/>
+                        </StackLayout>
+                    </ListView.Header>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="15*"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="{Binding Name}" Grid.Column="0" Grid.Row="0" HorizontalOptions="Start" VerticalOptions="Center"/>
+                                    <Label Text="{Binding RatingString}" Grid.Column="1" Grid.Row="0" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                    <Label Text="{Binding Date}" Grid.Column="2" Grid.Row="0" HorizontalOptions="EndAndExpand" VerticalOptions="Center"/>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

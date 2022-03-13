@@ -21,12 +21,14 @@ namespace BulgarianPlaces
             Routing.RegisterRoute(nameof(AboutPage), typeof(AboutPage));
             Routing.RegisterRoute(nameof(RegisterPage), typeof(RegisterPage));
             Routing.RegisterRoute(nameof(ProfilePage), typeof(ProfilePage));
+            Routing.RegisterRoute(nameof(PlaceVisitedPage), typeof(PlaceVisitedPage));
 
             //Ranking pages
             Routing.RegisterRoute(nameof(LastWeekRanking), typeof(LastWeekRanking));
             Routing.RegisterRoute(nameof(LastMonthRanking), typeof(LastMonthRanking));
             Routing.RegisterRoute(nameof(LastYearRanking), typeof(LastYearRanking));
             Routing.RegisterRoute(nameof(AllTimeRankingPage), typeof(AllTimeRankingPage));
+            Routing.RegisterRoute(nameof(SearchPage), typeof(SearchPage));
 
             //IsLoggedIn = Request To Api to check whether user is logged in
 
