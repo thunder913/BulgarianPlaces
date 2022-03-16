@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BulgarianPlaces.Views.AddReviewPage"
+             xmlns:local="clr-namespace:BulgarianPlaces.ViewModels"
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps" 
+             xmlns:local1="clr-namespace:BulgarianPlaces.Models"
+             x:DataType="local:AddReviewViewModel">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Create"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView InputTransparent="True">
+            <StackLayout CascadeInputTransparent="False">
+                <Image Source="{Binding image.Source}" HeightRequest="200" Margin="0, 20, 0, 0">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer
+                Tapped="OnPickPhotoButtonClicked"
+                NumberOfTapsRequired="1" />
+                    </Image.GestureRecognizers>
+                </Image>
+                <!--<StackLayout>
+                    <SearchBar
+                    WidthRequest="65"
+                    Margin="-20, 0, 0, 0"
+                    x:Name="searchBar"
+                    Placeholder="Search for a place..."
+                    CancelButtonColor="Black"
+                    SearchCommand="{Binding PerformSearch}"
+                    SearchCommandParameter="{Binding Text, Source={x:Reference searchBar}}"/>
+                    <Label Text="or" FontSize="14"/>
+                    <Entry Placeholder="Add a new place"/>
+                </StackLayout>-->
+                <StackLayout Orientation="Horizontal" x:Name="rattingBar" Margin="0, 15, 10, 0" HorizontalOptions="CenterAndExpand">
+                    <Label Text="★" FontSize="36" x:Name="star1" StyleId="star1">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Tapped="TapGestureRecognizer_Tapped"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <Label Text="★" FontSize="36" x:Name="star2" StyleId="star2">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Tapped="TapGestureRecognizer_Tapped"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <Label Text="★" FontSize="36" x:Name="star3" StyleId="star3">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Tapped="TapGestureRecognizer_Tapped"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <Label Text="★" FontSize="36" x:Name="star4" StyleId="star4">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Tapped="TapGestureRecognizer_Tapped"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <Label Text="★" FontSize="36" x:Name="star5" StyleId="star5">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Tapped="TapGestureRecognizer_Tapped"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+                <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30" Margin="10, 0, 10, 0">
+                    <StackLayout Orientation="Horizontal">
+                        <local1:CustomEditor HeightRequest="100" Placeholder="It is a great/bad place, because...." TextColor="black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="20,0,20,0"/>
+                    </StackLayout>
+                </Frame>
+                <Label Text="Choose where you have been:"/>
+                <maps:Map x:Name="MyMap" HeightRequest="300">
+                </maps:Map>
+                <StackLayout Orientation="Horizontal" Margin="0, 10, 0, 20">
+                    <Label  HorizontalTextAlignment="Center" Text="At the moment of submitting this, I am at the chosen place"/>
+                    <CheckBox Margin="0, 0, 20, 0"/>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -6,7 +6,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -53,7 +53,7 @@ namespace BulgarianPlaces.Views
             var profile = (ProfilePlace)listView.SelectedItem;
             if (profile == null)
                 return;
-
+            var location = await Geolocation.GetLastKnownLocationAsync();
             // This will push the ItemDetailPage onto the navigation stack
             await Shell.Current.GoToAsync($"{nameof(PlaceVisitedPage)}?{nameof(ProfilePlace.Id)}={profile.Id}");
         }

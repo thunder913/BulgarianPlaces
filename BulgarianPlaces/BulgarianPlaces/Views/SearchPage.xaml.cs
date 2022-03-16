@@ -13,7 +13,6 @@ using static BulgarianPlaces.Handlers.MySearchHandler;
 
 namespace BulgarianPlaces.Views
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SearchPage : ContentPage
     {
 
@@ -23,6 +22,18 @@ namespace BulgarianPlaces.Views
             Title = "Search people and landmarks";
             BindingContext = new SearchViewModel();
 
+        }
+
+        public async void OnItemSelected(object item, SelectedItemChangedEventArgs e)
+        {
+            var listView = (ListView)item;
+
+            var profile = (Models.SearchResult)listView.SelectedItem;
+            if (profile == null)
+                return;
+
+            // This will push the ItemDetailPage onto the navigation stack
+            await Shell.Current.GoToAsync($"{nameof(PlaceVisitedPage)}?{nameof(ProfilePlace.Id)}={profile.Id}");
         }
     }
 }

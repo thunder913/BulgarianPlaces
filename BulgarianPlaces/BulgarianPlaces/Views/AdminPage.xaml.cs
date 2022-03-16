@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace BulgarianPlaces.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class NavigationPage : ContentPage
+    public partial class AdminPage : ContentPage
     {
-        public NavigationPage()
+        public AdminPage()
         {
             InitializeComponent();
         }

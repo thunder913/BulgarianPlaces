@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BulgarianPlaces.ViewModels.Ranking;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -17,8 +18,8 @@ namespace BulgarianPlaces.Views.Ranking
         public LastWeekRanking()
         {
             InitializeComponent();
-
             PeopleView.ItemsSource = People;
+            BindingContext = new RankingViewModel();
 
             Title = "Ranking";
             People.Add(new Person() { Number=1 ,Name = "Pesho Petrov", Image = "https://scontent.fsof8-1.fna.fbcdn.net/v/t1.6435-9/194957949_4334439429940720_5542816028295677772_n.jpg?_nc_cat=108&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=o809HTUl7LIAX-TTwzJ&_nc_ht=scontent.fsof8-1.fna&oh=00_AT9tYtVYtMZSgigPmYPzxZvVZzRQHSZU03rGxf4RUwOl1g&oe=6250D054", Id="1235-52" });
@@ -40,6 +41,7 @@ namespace BulgarianPlaces.Views.Ranking
             People.Add(new Person() { Number=3, Name = "Ivan Ivanov", Image = "xamarin_logo.png", Id = "6235-53" });
             People.Add(new Person() { Number=3, Name = "Ivan Ivanov", Image = "xamarin_logo.png", Id = "6235-53" });
         }
+
 
         private void PeopleView_ItemTapped(object sender, ItemTappedEventArgs e)
         {

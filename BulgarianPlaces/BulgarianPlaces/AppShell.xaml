@@ -30,9 +30,8 @@
         </ResourceDictionary>
     </Shell.Resources>
 
-    <TabBar>
-
-        <Tab Title="Ranking" Icon="ranking.png" Route="RankingPage" >
+    <TabBar x:Name="AppTabBar">
+        <Tab Title="Ranking" Icon="ranking.png" Route="RankingPage">
             <ShellContent Title="Last week"
                          ContentTemplate="{DataTemplate ranking:LastWeekRanking}" />
             <ShellContent Title="Last Month"
@@ -44,6 +43,9 @@
         </Tab>
         <Tab Title="Admin" Icon="admin.png"  >
             <ShellContent ContentTemplate="{DataTemplate local:ProfilePage}"/>
+        </Tab>
+        <Tab Title="Admin123" Icon="admin.png" IsVisible="{Binding IsAdmin}">
+            <ShellContent ContentTemplate="{DataTemplate local:AdminPage}"/>
         </Tab>
         <Tab Title="Search" Icon="search.png" >
             <ShellContent ContentTemplate="{DataTemplate local:SearchPage}"/>

@@ -4,6 +4,7 @@ using BulgarianPlaces.Views;
 using BulgarianPlaces.Views.Ranking;
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
@@ -12,9 +13,12 @@ namespace BulgarianPlaces
     public partial class AppShell : Xamarin.Forms.Shell
     {
         public static bool IsLoggedIn { get; set; } = true;
+        public bool IsAdmin { get; set; } = new Random().Next(0, 100) % 2 == 0;
         public AppShell()
         {
+            
             InitializeComponent();
+            BindingContext = this;
             Routing.RegisterRoute(nameof(ItemDetailPage), typeof(ItemDetailPage));
             Routing.RegisterRoute(nameof(NewItemPage), typeof(NewItemPage));
             Routing.RegisterRoute(nameof(LoginPage), typeof(LoginPage));
@@ -22,6 +26,8 @@ namespace BulgarianPlaces
             Routing.RegisterRoute(nameof(RegisterPage), typeof(RegisterPage));
             Routing.RegisterRoute(nameof(ProfilePage), typeof(ProfilePage));
             Routing.RegisterRoute(nameof(PlaceVisitedPage), typeof(PlaceVisitedPage));
+            Routing.RegisterRoute(nameof(AddReviewPage), typeof(AddReviewPage));
+            Routing.RegisterRoute(nameof(AdminPage), typeof(AdminPage));
 
             //Ranking pages
             Routing.RegisterRoute(nameof(LastWeekRanking), typeof(LastWeekRanking));
@@ -30,7 +36,13 @@ namespace BulgarianPlaces
             Routing.RegisterRoute(nameof(AllTimeRankingPage), typeof(AllTimeRankingPage));
             Routing.RegisterRoute(nameof(SearchPage), typeof(SearchPage));
 
-            //IsLoggedIn = Request To Api to check whether user is logged in
+            //TODO IsLoggedIn = Request To Api to check whether user is logged in
+
+            if (true)
+            {
+                Thread.Sleep(2000);
+                IsAdmin = true;
+            }
 
             if (!IsLoggedIn)
             {
