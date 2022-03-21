@@ -6,17 +6,16 @@ namespace BulgarianPlaces.Views
 {
     public partial class PlaceVisitedPage : ContentPage
     {
+        private PlaceVisitedViewModel vm { get; set; }
         public PlaceVisitedPage()
         {
             InitializeComponent();
-            BindingContext = new PlaceVisitedViewModel();
-
-            Reset();
+            BindingContext = vm = new PlaceVisitedViewModel(ChangeTextColor);
         }
 
         void Reset()
         {
-            ChangeTextColor(4, Color.Black);
+            ChangeTextColor(vm.Place.Rating, Color.Black);
         }
 
         void ChangeTextColor(int starcount, Color color)

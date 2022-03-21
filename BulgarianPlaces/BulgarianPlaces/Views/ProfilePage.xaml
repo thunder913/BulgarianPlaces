@@ -37,7 +37,7 @@
                     Grid.Column="0">
                     <Image 
                        Aspect="Fill"
-                       Source="admin.png"
+                       Source="{Binding Profile.Image}"
                        >
                         <Image.GestureRecognizers>
                             <TapGestureRecognizer
@@ -47,7 +47,7 @@
                     </Image>
 
                 </Frame>
-                    <Label Grid.Column="1" Text="Andon Gorchov"
+                    <Label Grid.Column="1" Text="{Binding Profile.Name}"
                        FontSize="24"
                        VerticalOptions="CenterAndExpand"
                        Margin="25, 0, 0, 0"
@@ -57,7 +57,7 @@
                     Grid.Row="1"
                     Grid.Column="0"
                     Grid.ColumnSpan="2"
-                    Text="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,"/>
+                    Text="{Binding Profile.Description}"/>
                     <Grid 
                     Grid.Row="2"
                     Grid.Column="0"
@@ -72,13 +72,13 @@
                             <ColumnDefinition/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
-                        <Label HorizontalOptions="CenterAndExpand" Text="80" Grid.Column="0" Grid.Row="0" FontSize="30"/>
+                        <Label HorizontalOptions="CenterAndExpand" Text="{Binding Profile.Visited}" Grid.Column="0" Grid.Row="0" FontSize="30"/>
                         <Label HorizontalOptions="CenterAndExpand" Text="visited" Grid.Column="0" Grid.Row="1" FontSize="18"/>
-                        <Label HorizontalOptions="CenterAndExpand" Text="80" Grid.Column="1" Grid.Row="0" FontSize="30"/>
+                        <Label HorizontalOptions="CenterAndExpand" Text="{Binding Profile.VisitedLastMonth}" Grid.Column="1" Grid.Row="0" FontSize="30"/>
                         <Label HorizontalOptions="CenterAndExpand" Text="this month" Grid.Column="1" Grid.Row="1" FontSize="18"/>
                     </Grid>
                     <ListView x:Name="PlacesVisited"
-                    ItemsSource="{Binding Places}"
+                    ItemsSource="{Binding Profile.PlacesVisited}"
                     Grid.Row="3"
                     Grid.Column="0"
                     Grid.ColumnSpan="2"
@@ -104,8 +104,8 @@
                                             <ColumnDefinition/>
                                             <ColumnDefinition/>
                                         </Grid.ColumnDefinitions>
-                                        <Label Text="{Binding Name}" Grid.Column="0" Grid.Row="0" HorizontalOptions="Start" VerticalOptions="Center"/>
-                                        <Label Text="{Binding RatingString}" Grid.Column="1" Grid.Row="0" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                        <Label Text="{Binding PlaceName}" Grid.Column="0" Grid.Row="0" HorizontalOptions="Start" VerticalOptions="Center"/>
+                                        <Label Text="{Binding Rating}" Grid.Column="1" Grid.Row="0" HorizontalOptions="Center" VerticalOptions="Center"/>
                                         <Label Text="{Binding Date}" Grid.Column="2" Grid.Row="0" HorizontalOptions="EndAndExpand" VerticalOptions="Center"/>
                                     </Grid>
                                 </ViewCell>

@@ -1,5 +1,10 @@
-﻿using System;
+﻿using BulgarianPlaces.Models.HttpModels;
+using BulgarianPlaces.Views;
+using Newtonsoft.Json;
+using System;
 using System.Diagnostics;
+using System.Net.Http;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace BulgarianPlaces.ViewModels
@@ -7,8 +12,13 @@ namespace BulgarianPlaces.ViewModels
     [QueryProperty(nameof(Id), nameof(Id))]
     public class PlaceVisitedViewModel : BaseViewModel
     {
-        private string text;
-        private string description;
+        public Action<int, Color> ChangeColor { get; set; }
+        public PlaceVisitedViewModel(Action<int, Color> changeColor)
+        {
+            this.ChangeColor = changeColor;
+        }
+
+        private HttpClient client = new HttpClient();
         private int id;
         public int Id
         {
@@ -19,33 +29,27 @@ namespace BulgarianPlaces.ViewModels
                 this.LoadItemId(value);
             }
         }
-
-        public string Text
-        {
-            get => text;
-            set
-            {
-                SetProperty(ref text, value);
-            }
-        }
-
-        public string Description
-        {
-            get => description;
-            set => SetProperty(ref description, value);
-        }
-
+        private PlaceReviewDto place;
+        public PlaceReviewDto Place { get => place; set => SetProperty(ref place, value); }
         public void LoadItemId(int id)
         {
-            try
+            Task.Run(async () =>
             {
-                Text = "TOVA E TEXT" + id;
-                Description = "tui e description" + id;
-            }
-            catch (Exception)
-            {
-                Debug.WriteLine("Failed to Load Item");
-            }
+                try
+                {
+                    Uri uri = new Uri(string.Format("http://10.0.2.2:61650/Review/"+id));
+                    var result = await client.GetAsync(uri);
+                    var responseAsString = await result.Content.ReadAsStringAsync();
+                    this.Place = JsonConvert.DeserializeObject<PlaceReviewDto>(responseAsString);
+                    this.ChangeColor(this.Place.Rating, Color.Black);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                }
+
+            }).Wait();
         }
+
     }
 }

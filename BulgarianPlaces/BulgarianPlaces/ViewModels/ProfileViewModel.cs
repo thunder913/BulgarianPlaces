@@ -1,5 +1,7 @@
 ﻿using BulgarianPlaces.Models;
+using BulgarianPlaces.Models.HttpModels;
 using BulgarianPlaces.Views;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -12,7 +14,7 @@ namespace BulgarianPlaces.ViewModels
     class ProfileViewModel : BaseViewModel
     {
         HttpClient client;
-
+        public ProfileDto Profile { get; set; }
         public ProfileViewModel()
         {
             Title = "Profile";
@@ -22,9 +24,10 @@ namespace BulgarianPlaces.ViewModels
             {
                 try
                 {
-                    Uri uri = new Uri(string.Format("http://192.168.1.6:44393/Review/Admin", string.Empty));
+                    Uri uri = new Uri(string.Format("http://10.0.2.2:61650/User/Profile/1"));
                     var result = await client.GetAsync(uri);
-                    Console.WriteLine(result);
+                    var responseAsString = await result.Content.ReadAsStringAsync();
+                    Profile = JsonConvert.DeserializeObject<ProfileDto>(responseAsString);
                 }catch(Exception ex)
                 {
                     Console.WriteLine(ex);
