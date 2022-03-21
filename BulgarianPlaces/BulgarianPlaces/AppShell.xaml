@@ -41,10 +41,7 @@
             <ShellContent Title="All time"
                          ContentTemplate="{DataTemplate ranking:AllTimeRankingPage}" />
         </Tab>
-        <Tab Title="Admin" Icon="admin.png"  >
-            <ShellContent ContentTemplate="{DataTemplate local:ProfilePage}"/>
-        </Tab>
-        <Tab Title="Admin123" Icon="admin.png" IsVisible="{Binding IsAdmin}">
+        <Tab Title="Admin" Icon="admin.png" IsVisible="{Binding IsAdmin}">
             <ShellContent ContentTemplate="{DataTemplate local:AdminPage}"/>
         </Tab>
         <Tab Title="Search" Icon="search.png" >

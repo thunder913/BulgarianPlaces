@@ -13,7 +13,7 @@ namespace BulgarianPlaces
     public partial class AppShell : Xamarin.Forms.Shell
     {
         public static bool IsLoggedIn { get; set; } = true;
-        public bool IsAdmin { get; set; } = new Random().Next(0, 100) % 2 == 0;
+        public bool IsAdmin { get; set; } = true;
         public AppShell()
         {
             
@@ -28,6 +28,8 @@ namespace BulgarianPlaces
             Routing.RegisterRoute(nameof(PlaceVisitedPage), typeof(PlaceVisitedPage));
             Routing.RegisterRoute(nameof(AddReviewPage), typeof(AddReviewPage));
             Routing.RegisterRoute(nameof(AdminPage), typeof(AdminPage));
+            Routing.RegisterRoute(nameof(AdminApprovalPage), typeof(AdminApprovalPage));
+            Routing.RegisterRoute(nameof(ImagePage), typeof(ImagePage));
 
             //Ranking pages
             Routing.RegisterRoute(nameof(LastWeekRanking), typeof(LastWeekRanking));

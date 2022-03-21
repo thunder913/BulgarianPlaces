@@ -57,5 +57,10 @@ namespace BulgarianPlaces.Views
             // This will push the ItemDetailPage onto the navigation stack
             await Shell.Current.GoToAsync($"{nameof(PlaceVisitedPage)}?{nameof(ProfilePlace.Id)}={profile.Id}");
         }
+
+        async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync($"{nameof(ImagePage)}?ImageSource=admin.png");
+        }
     }
 }

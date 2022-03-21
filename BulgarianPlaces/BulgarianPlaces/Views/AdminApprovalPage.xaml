@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps" 
+             xmlns:local="clr-namespace:BulgarianPlaces.Models"
+             x:Class="BulgarianPlaces.Views.AdminApprovalPage">
+    <ContentPage.Content>
+        <ScrollView InputTransparent="True">
+            <StackLayout>
+                <Label HorizontalOptions="EndAndExpand" Text="22/03/2022 14:30:52" Padding="10"/>
+                <Label HorizontalOptions="StartAndExpand" Text="Ivan Petrov" Padding="5, 0, 0, 0" FontSize="28"/>
+                <Label HorizontalOptions="StartAndExpand" Text="ivanpetrov@gmail.com" Padding="5, 0, 0, 0" FontSize="16"/>
+                <StackLayout Orientation="Horizontal" Margin="0, 10, 0, 20">
+                    <Label  HorizontalTextAlignment="Center" Text="At the moment of submitting this, I am at the chosen place"/>
+                    <CheckBox Margin="0, 0, 20, 0" IsChecked="{Binding IsAtThePlace}" IsEnabled="False"/>
+                </StackLayout>
+                <maps:Map x:Name="MyMap" HeightRequest="300">
+                </maps:Map>
+                <Image Source="add_image.png"/>
+                <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30" Margin="10, 0, 10, 0">
+                    <StackLayout Orientation="Horizontal">
+                        <local:CustomEditor 
+                            HeightRequest="100" 
+                            TextColor="black" 
+                            FontAttributes="None" 
+                            HorizontalOptions="FillAndExpand" 
+                            Margin="20,0,20,0"
+                            IsReadOnly="True"
+                            Text="This is a description............."/>
+                    </StackLayout>
+                </Frame>
+                <SearchBar
+                x:Name="searchBar"
+                Placeholder="Search..."
+                CancelButtonColor="Black"
+                SearchCommand="{Binding PerformSearch}"
+                SearchCommandParameter="{Binding Text, Source={x:Reference searchBar}}"
+                Margin="-20, 0, 0, 0"/>
+                <Label Text="or"/>
+                <Entry Placeholder="Add a new place"/>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Row="0" Grid.Column="0" Text="Accept" Background="green" Margin="20" CornerRadius="200"/>
+                    <Button Grid.Row="0" Grid.Column="1" Text="Decline" Background="red" Margin="20" CornerRadius="200"/>
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

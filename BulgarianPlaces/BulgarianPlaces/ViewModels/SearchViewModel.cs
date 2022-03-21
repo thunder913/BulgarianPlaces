@@ -1,4 +1,5 @@
 ﻿using BulgarianPlaces.Models;
+using BulgarianPlaces.Models.Enums;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -23,9 +24,10 @@ namespace BulgarianPlaces.ViewModels
             Console.WriteLine(query);
             //TODO add logic ot get the correct results
             var results = new List<SearchResult>();
-            results.Add(new Models.SearchResult() { Id = 1, Image = "admin.png", Name = "Ivan Todorov", RightColumnNumber = "15" });
-            results.Add(new Models.SearchResult() { Id = 2, Image = "admin.png", Name = "Ivan Todorov", RightColumnNumber = "11" });
-            results.Add(new Models.SearchResult() { Id = 3, Image = "admin.png", Name = "Ivan Todorov", RightColumnNumber = "12" });
+            results.Add(new Models.SearchResult() { Id = 1, Image = "admin.png", Name = "Ivan Todorov", RightColumnNumber = "15", SearchType = SearchType.Person });
+            results.Add(new Models.SearchResult() { Id = 2, Image = "admin.png", Name = "Ivan Todorov", RightColumnNumber = "11", SearchType = SearchType.Person });
+            results.Add(new Models.SearchResult() { Id = 3, Image = "admin.png", Name = "Ivan Todorov", RightColumnNumber = "12", SearchType = SearchType.Person });
+            results.Add(new Models.SearchResult() { Id = 4, Image = "ranking.png", Name = "Shipka", RightColumnNumber = "12", SearchType = SearchType.Place });
             SearchResults = results;
         });
 

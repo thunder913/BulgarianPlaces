@@ -35,12 +35,18 @@
                     VerticalOptions="Center"
                     IsClippedToBounds="True"
                     Grid.Column="0">
-                        <Image 
+                    <Image 
                        Aspect="Fill"
                        Source="admin.png"
-                       />
+                       >
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer
+                                NumberOfTapsRequired="1"
+                                Tapped="TapGestureRecognizer_Tapped"/>
+                        </Image.GestureRecognizers>
+                    </Image>
 
-                    </Frame>
+                </Frame>
                     <Label Grid.Column="1" Text="Andon Gorchov"
                        FontSize="24"
                        VerticalOptions="CenterAndExpand"

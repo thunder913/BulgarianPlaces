@@ -1,12 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="BulgarianPlaces.Views.AdminPage">
+             x:Class="BulgarianPlaces.Views.AdminPage"
+             Title="Admin Panel">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ListView x:Name="SubmitsView"
+            ItemsSource="{Binding Submits}"
+            ItemTapped="SubmitsView_ItemTapped">
+            <ListView.Header>
+                <StackLayout Orientation="Horizontal" VerticalOptions="Start" Padding="10, 10, 5, 0">
+                    <Label Text="Email"/>
+                    <Label Text="Date Submitted" HorizontalOptions="EndAndExpand"/>
+                </StackLayout>
+            </ListView.Header>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20*"/>
+                            </Grid.RowDefinitions>
+                            <Label Text="{Binding Email}" Grid.Column="0" Grid.Row="0" HorizontalOptions="Start" Padding="10, 0, 0, 0" VerticalOptions="Center"/>
+                            <Label Text="{Binding DateSubmitted}" HorizontalOptions="EndAndExpand" VerticalOptions="Center" Padding="0, 0, 25, 0"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </ContentPage.Content>
 </ContentPage>
