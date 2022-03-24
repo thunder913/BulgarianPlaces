@@ -5,8 +5,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;
 using Xamarin.Forms.Xaml;
@@ -17,18 +18,21 @@ namespace BulgarianPlaces.Views
     public partial class AddReviewPage : ContentPage
     {
         public event EventHandler<Xamarin.Forms.Maps.MapClickedEventArgs> MapClicked;
+        public static Position Position = new Position();
+        public static int Rating { get; set; } = 3;
         private AddReviewViewModel vm { get; set; }
         public AddReviewPage()
         {
             InitializeComponent();
-            BindingContext = vm = new AddReviewViewModel();
+            BindingContext = vm = new AddReviewViewModel(SubmitReview);
             
             Reset();
-            ChangeTextColor(3, Color.Black);
+            ChangeTextColor(Rating, Color.Black);
 
             var position = new Position(42.7249925, 25.4833039);
             MyMap.MoveToRegion(new MapSpan(position, 3, 3));
             MyMap.MapClicked += Map_MapClicked;
+
         }
 
         void Reset()
@@ -48,16 +52,18 @@ namespace BulgarianPlaces.Views
         {
             Reset();
             Label clicked = sender as Label;
-            ChangeTextColor(Convert.ToInt32(clicked.StyleId.Substring(4, 1)), Color.Black);
+            Rating = Convert.ToInt32(clicked.StyleId.Substring(4, 1));
+            ChangeTextColor(Rating, Color.Black);
         }
 
         public void Map_MapClicked(object sender, MapClickedEventArgs e)
         {
             MyMap.Pins.Clear();
+            Position = new Position(e.Position.Latitude, e.Position.Longitude);
             MyMap.Pins.Add(new Pin
             {
                 Label = "Pin from tap",
-                Position = new Position(e.Position.Latitude, e.Position.Longitude),
+                Position = Position,
             });
         }
 
@@ -68,6 +74,22 @@ namespace BulgarianPlaces.Views
             {
                 vm.image.Source = ImageSource.FromStream(() => stream);
             }
+        }
+
+        public void SubmitReview(Image image, string description)
+        {
+            Console.WriteLine(image);
+            Console.WriteLine(description);
+            Console.WriteLine(Rating);
+            Console.WriteLine(Position.Latitude);
+            Console.WriteLine(Position.Longitude);
+            Console.WriteLine(Checkbox.IsChecked);
+            Task.Run(async () =>
+            {
+                var request = new GeolocationRequest(GeolocationAccuracy.Medium, TimeSpan.FromSeconds(10));
+                CancellationTokenSource cts = new CancellationTokenSource();
+                var location = await Geolocation.GetLocationAsync(request, cts.Token);
+            }).Wait();
         }
 
     }

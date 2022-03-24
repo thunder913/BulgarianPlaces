@@ -12,20 +12,19 @@ namespace BulgarianPlaces.ViewModels
     public class AddReviewViewModel : BaseViewModel
     {
         public Image image { get; set; } = new Image();
-        public AddReviewViewModel()
+        public string Description { get; set; }
+        public Action<Image, string> AddReview;
+        public Command SubmitReview { get; }
+        public AddReviewViewModel(Action<Image, string> addReview)
         {
             image.Source = "add_image.png";
+            this.AddReview = addReview;
+            SubmitReview = new Command(SubmitReviewAction);
         }
 
-        public ICommand PerformSearch => new Command<string>((string query) =>
+        public void SubmitReviewAction()
         {
-            Console.WriteLine(query);
-            Console.WriteLine(query);
-            //TODO add logic ot get the correct results
-            var results = new List<SearchResult>();
-            results.Add(new Models.SearchResult() { Id = 1, Image = "admin.png", Name = "Ivan Todorov", RightColumnNumber = "15" });
-            results.Add(new Models.SearchResult() { Id = 2, Image = "admin.png", Name = "Ivan Todorov", RightColumnNumber = "11" });
-            results.Add(new Models.SearchResult() { Id = 3, Image = "admin.png", Name = "Ivan Todorov", RightColumnNumber = "12" });
-        });
+            this.AddReview(this.image, this.Description);
+        }
     }
 }

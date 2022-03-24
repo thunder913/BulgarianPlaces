@@ -32,7 +32,7 @@ namespace BulgarianPlaces.Views.Ranking
             base.OnAppearing();
             Task.Run(async () =>
             {
-                Uri uri = new Uri(string.Format(GlobalConstants.Url + "User/ranking/" + RankingType.Yearly));
+                Uri uri = new Uri(string.Format(GlobalConstants.Url + "User/ranking/" + RankingType.AllTime));
                 var result = await client.GetAsync(uri);
                 var responseAsString = await result.Content.ReadAsStringAsync();
                 var peopleRanked = JsonConvert.DeserializeObject<List<RankingUserDto>>(responseAsString);
