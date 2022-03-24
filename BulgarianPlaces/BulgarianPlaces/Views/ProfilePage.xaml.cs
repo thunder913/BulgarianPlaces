@@ -14,29 +14,6 @@ namespace BulgarianPlaces.Views
             InitializeComponent();
             BindingContext = new ProfileViewModel();
             Shell.SetTabBarIsVisible(this, true);
-            //PlacesVisited.ItemsSource = Places;
-            //Places.Add(new ProfilePlace() { Id = 1, Name = "Shipka", Date = "12/03/2022", Rating = 4 });
-            //Places.Add(new ProfilePlace() { Id = 2, Name = "Shipka", Date = "12/03/2022", Rating = 4 });
-            //Places.Add(new ProfilePlace() { Id = 3, Name = "Shipka", Date = "12/03/2022", Rating = 4 });
-            //Places.Add(new ProfilePlace() { Id = 4, Name = "Shipka", Date = "12/03/2022", Rating = 4 });
-            //Places.Add(new ProfilePlace() { Id = 5, Name = "Shipka", Date = "12/03/2022", Rating = 4 });
-            //Places.Add(new ProfilePlace() { Id = 6, Name = "Shipka", Date = "12/03/2022", Rating = 4 });
-            //Places.Add(new ProfilePlace() { Id = 7, Name = "Shipka", Date = "12/03/2022", Rating = 4 });
-            //Places.Add(new ProfilePlace() { Id = 8, Name = "Shipka", Date = "12/03/2022", Rating = 4 });
-            //Places.Add(new ProfilePlace() { Id = 9, Name = "Shipka", Date = "12/03/2022", Rating = 4 });
-            //Places.Add(new ProfilePlace() { Id = 10, Name = "Shipka", Date = "12/03/2022", Rating = 4 });
-            //Places.Add(new ProfilePlace() { Id = 11, Name = "Shipka", Date = "12/03/2022", Rating = 4 });
-            //Places.Add(new ProfilePlace() { Id = 12, Name = "Shipka", Date = "12/03/2022", Rating = 4 });
-            //Places.Add(new ProfilePlace() { Id = 13, Name = "Shipka", Date = "12/03/2022", Rating = 4 });
-            //Places.Add(new ProfilePlace() { Id = 14, Name = "Shipka", Date = "12/03/2022", Rating = 4 });
-            //Places.Add(new ProfilePlace() { Id = 15, Name = "Shipka", Date = "12/03/2022", Rating = 4 });
-            //Places.Add(new ProfilePlace() { Id = 16, Name = "Shipka", Date = "12/03/2022", Rating = 4 });
-            //Places.Add(new ProfilePlace() { Id = 17, Name = "Shipka", Date = "12/03/2022", Rating = 4 });
-            //Places.Add(new ProfilePlace() { Id = 18, Name = "Shipka", Date = "12/03/2022", Rating = 4 });
-            //Places.Add(new ProfilePlace() { Id = 19, Name = "Shipka", Date = "12/03/2022", Rating = 4 });
-            //Places.Add(new ProfilePlace() { Id = 20, Name = "Shipka", Date = "12/03/2022", Rating = 4 });
-            //Places.Add(new ProfilePlace() { Id = 21, Name = "Shipka", Date = "12/03/2022", Rating = 4 });
-            //Places.Add(new ProfilePlace() { Id = 22, Name = "Shipka", Date = "12/03/2022", Rating = 4 });
 
         }
         async void OnItemSelected(object item, SelectedItemChangedEventArgs e)

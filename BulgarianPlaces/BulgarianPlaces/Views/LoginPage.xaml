@@ -44,14 +44,12 @@
                                 </StackLayout>
                             </Frame>
 
-                            <StackLayout  Orientation="Horizontal">
-                                <CheckBox IsChecked="False" Color="blue" />
-                                <Label Text="Remember me" TextColor="DarkGray" FontSize="Small" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+                            <!--<StackLayout  Orientation="Horizontal">
 
                                 <Label Text="Forgot Password" TextColor="blue" FontAttributes="Bold" HorizontalOptions="EndAndExpand" FontSize="Small" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
 
 
-                            </StackLayout>
+                            </StackLayout>-->
 
                             <Button Command="{Binding LoginCommand}" Text="SIGN IN" BackgroundColor="blue" TextColor="White" CornerRadius="30" />
                             <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
