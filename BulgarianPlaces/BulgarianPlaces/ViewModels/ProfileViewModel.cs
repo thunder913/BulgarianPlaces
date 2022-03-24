@@ -24,7 +24,8 @@ namespace BulgarianPlaces.ViewModels
             {
                 try
                 {
-                    Uri uri = new Uri(string.Format("http://10.0.2.2:61650/User/Profile/1"));
+                    Application.Current.Properties.TryGetValue("id", out var id);
+                    Uri uri = new Uri(string.Format(GlobalConstants.Url + "User/Profile/"+ id));
                     var result = await client.GetAsync(uri);
                     var responseAsString = await result.Content.ReadAsStringAsync();
                     Profile = JsonConvert.DeserializeObject<ProfileDto>(responseAsString);
@@ -34,7 +35,6 @@ namespace BulgarianPlaces.ViewModels
                 }
 
             }).Wait();
-
         }
     }
 }

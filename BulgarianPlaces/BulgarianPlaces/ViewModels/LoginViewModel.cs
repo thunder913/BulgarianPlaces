@@ -1,25 +1,86 @@
-﻿using BulgarianPlaces.Views;
+﻿using BulgarianPlaces.Models.HttpModels;
+using BulgarianPlaces.Views;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Net.Http;
 using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace BulgarianPlaces.ViewModels
 {
     public class LoginViewModel : BaseViewModel
     {
+        public HttpClient client = new HttpClient();
+        public string Email { get; set; }
+        public string Password { get; set; }
         public Command LoginCommand { get; }
         public Command RegisterCommand { get; }
-
-        public LoginViewModel()
+        public Func<string, Task> DisplayAlert;
+        public LoginViewModel(Func<string, Task> displayAlert)
         {
             LoginCommand = new Command(OnLoginClicked);
             RegisterCommand = new Command(GoToRegister);
+            this.DisplayAlert = displayAlert;
         }
 
         private async void OnLoginClicked(object obj)
         {
-            await Shell.Current.GoToAsync($"//{nameof(AboutPage)}");
+            Application.Current.Properties.TryGetValue("token", out var token);
+            if (string.IsNullOrWhiteSpace(this.Email) || !Regex.IsMatch(this.Email, @"^[^@\s]+@[^@\s]+\.[^@\s]+$", RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(250)))
+            {
+                await this.DisplayAlert("You have entered an invalid email!");
+                return;
+            }
+            else if (string.IsNullOrWhiteSpace(this.Password) || this.Password.Length < 6)
+            {
+                await this.DisplayAlert("The password must be at least 6 characters long!");
+                return;
+            }
+            Uri uri = new Uri(string.Format(GlobalConstants.Url + $"User/login?email={this.Email}&password={this.Password}"));
+            var result = await client.PostAsync(uri, null);
+            if (result.StatusCode == System.Net.HttpStatusCode.BadRequest)
+            {
+                await this.DisplayAlert("There is already a user registered with this email. Try again!");
+                return;
+            }
+            var response = await result.Content.ReadAsStringAsync();
+            var loginResponse = JsonConvert.DeserializeObject<LoginResponse>(response);
+            Application.Current.Properties["token"] = loginResponse.JwtToken;
+            Application.Current.Properties["id"] = loginResponse.Id;
+            Application.Current.Properties["isAdmin"] = loginResponse.IsAdmin;
+            AppShell.IsAdmin = loginResponse.IsAdmin;
+
+            if (loginResponse.IsAdmin)
+            {
+                if (AppShell.RootTab.Items.Count != 4)
+                {
+                    AppShell.RootTab.Items.Insert(2, new Tab()
+                    {
+                        Title = "Admin",
+                        Icon = "admin.png",
+                        Items =
+                    {
+                        new ShellContent()
+                        {
+                            Route = "AdminPage",
+                            ContentTemplate = new DataTemplate(typeof(AdminPage))
+                        }
+                    }
+                    });
+                }
+            }
+            else
+            {
+                if (AppShell.RootTab.Items.Count == 4)
+                {
+                    AppShell.RootTab.Items.RemoveAt(2);
+                }
+            }
+            await Application.Current.SavePropertiesAsync();
+            await Shell.Current.GoToAsync($"//{nameof(ProfilePage)}");
         }
 
         private async void GoToRegister(object obj)

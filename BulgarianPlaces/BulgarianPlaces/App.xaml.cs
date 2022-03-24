@@ -1,6 +1,8 @@
 ﻿using BulgarianPlaces.Services;
 using BulgarianPlaces.Views;
 using System;
+using System.Net.Http;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -8,7 +10,6 @@ namespace BulgarianPlaces
 {
     public partial class App : Application
     {
-        public bool IsLoggedIn { get; set; }
 
         public App()
         {
@@ -20,6 +21,7 @@ namespace BulgarianPlaces
 
         protected override void OnStart()
         {
+
         }
 
         protected override void OnSleep()

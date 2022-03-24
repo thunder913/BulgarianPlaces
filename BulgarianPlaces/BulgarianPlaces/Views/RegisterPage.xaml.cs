@@ -15,7 +15,13 @@ namespace BulgarianPlaces.Views
         public RegisterPage()
         {
             InitializeComponent();
-            this.BindingContext = new RegisterViewModel();
+            this.BindingContext = new RegisterViewModel(DisplayAlert);
+            Shell.SetTabBarIsVisible(this, false);
+        }
+
+        public async Task DisplayAlert(string text)
+        {
+            await this.DisplayAlert("Error", text, "OK");
         }
     }
 }

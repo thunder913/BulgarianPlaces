@@ -4,7 +4,8 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             xmlns:local="clr-namespace:BulgarianPlaces.Models"
+             xmlns:local="clr-namespace:BulgarianPlaces.Models" xmlns:viewmodels="clr-namespace:BulgarianPlaces.ViewModels" 
+             x:DataType="viewmodels:RegisterViewModel"
              x:Class="BulgarianPlaces.Views.RegisterPage"
              Shell.NavBarIsVisible="False">
     <StackLayout BackgroundColor="#e6e6e6">
@@ -30,7 +31,7 @@
                                         <Image Source="https://www.findool.com/images/avatars/avatar.png" Aspect="AspectFill" Margin="0"/>
                                     </Frame>
 
-                                    <local:CustomEntry Placeholder="Email" TextColor="black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                                    <local:CustomEntry Text="{Binding Email, Mode=TwoWay}" x:Name="Email" Placeholder="Email" TextColor="black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
                                 </StackLayout>
                             </Frame>
 
@@ -60,7 +61,7 @@
                                         <Image Source="https://images.all-free-download.com/images/graphicthumb/lock_icon_6813906.jpg" Aspect="AspectFill" Margin="0"/>
                                     </Frame>
 
-                                    <local:CustomEntry Placeholder="Password" IsPassword="True" TextColor="black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                                    <local:CustomEntry Text="{Binding Password, Mode=TwoWay}" x:Name="Password" Placeholder="Password" IsPassword="True" TextColor="black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
                                 </StackLayout>
                             </Frame>
 
@@ -71,15 +72,15 @@
                                         <Image Source="https://images.all-free-download.com/images/graphicthumb/lock_icon_6813906.jpg" Aspect="AspectFill" Margin="0"/>
                                     </Frame>
 
-                                    <local:CustomEntry Placeholder="Confirm Password" IsPassword="True" TextColor="black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                                    <local:CustomEntry Text="{Binding ConfirmPassword, Mode=TwoWay}" x:Name="ConfirmPassword" Placeholder="Confirm Password" IsPassword="True" TextColor="black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
                                 </StackLayout>
                             </Frame>
 
 
-                                <Button Text="SIGN UP" BackgroundColor="#123ac7" TextColor="White" CornerRadius="30" />
+                                <Button Command="{Binding RegisterCommand}" Text="SIGN UP" BackgroundColor="#123ac7" TextColor="White" CornerRadius="30" />
                             <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                                 <Label Text="Already have an account?" TextColor="DarkGray" FontSize="Small"/>
-                                <Button Command="{Binding RegisterCommand}" BackgroundColor="Transparent" Padding="0" WidthRequest="60" HeightRequest="20" Text="Sign In" TextColor="blue" FontAttributes="Bold" FontSize="Small" />
+                                    <Button Command="{Binding SignInCommand}" BackgroundColor="Transparent" Padding="0" WidthRequest="60" HeightRequest="20" Text="Sign In" TextColor="blue" FontAttributes="Bold" FontSize="Small" />
                             </StackLayout>
                         </StackLayout>
                     </StackLayout>

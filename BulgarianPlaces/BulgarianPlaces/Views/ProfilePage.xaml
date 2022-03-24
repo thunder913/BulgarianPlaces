@@ -2,8 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BulgarianPlaces.Views.ProfilePage"
-             Title="{Binding Title}"
-             xmlns:local="clr-namespace:BulgarianPlaces.ViewModels">
+             Title="{Binding Title}">
     
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add"/>
@@ -11,7 +10,8 @@
     
     <ContentPage.Content>
             <StackLayout Margin="10,10,10,0">
-                <Grid
+            <Button Text="Sign out" WidthRequest="100" HorizontalOptions="End" CornerRadius="20" BackgroundColor="DarkRed" IsVisible="true" Clicked="OnButtonClicked"/>
+            <Grid
             RowSpacing="20"
             >
                     <Grid.RowDefinitions>

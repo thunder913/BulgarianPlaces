@@ -37,7 +37,7 @@ namespace BulgarianPlaces.ViewModels
             {
                 try
                 {
-                    Uri uri = new Uri(string.Format("http://10.0.2.2:61650/Review/"+id));
+                    Uri uri = new Uri(string.Format(GlobalConstants.Url + "Review/"+id));
                     var result = await client.GetAsync(uri);
                     var responseAsString = await result.Content.ReadAsStringAsync();
                     this.Place = JsonConvert.DeserializeObject<PlaceReviewDto>(responseAsString);
