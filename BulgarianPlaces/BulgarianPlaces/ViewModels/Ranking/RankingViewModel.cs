@@ -14,7 +14,7 @@ namespace BulgarianPlaces.ViewModels.Ranking
 
         public async void OnAddNewReview()
         {
-            await Shell.Current.GoToAsync($"{nameof(AddReviewPage)}");
+            await Shell.Current.GoToAsync($"//LastWeekRankingPage/{nameof(AddReviewPage)}");
         }
     }
 }

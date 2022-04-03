@@ -47,7 +47,7 @@ namespace BulgarianPlaces.Views.Ranking
         private async void PeopleView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             var selectedItem = (RankingUserDto)((ListView)sender).SelectedItem;
-            await Shell.Current.GoToAsync($"{nameof(ProfilePage)}?Id=" + selectedItem.Id);
+            await Shell.Current.GoToAsync($"//LastWeekRankingPage/{nameof(ProfilePage)}?Id=" + selectedItem.Id);
         }
     }
 }

@@ -27,7 +27,7 @@ namespace BulgarianPlaces.Views
         private void SubmitsView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             var selectedItem = (AdminPanelDto)((ListView)sender).SelectedItem;
-            Shell.Current.GoToAsync($"{nameof(AdminApprovalPage)}?Id="+selectedItem.Id);
+            Shell.Current.GoToAsync($"//AdminPage/{nameof(AdminApprovalPage)}?Id="+selectedItem.Id);
         }
 
         protected override void OnAppearing()

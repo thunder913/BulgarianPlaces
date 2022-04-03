@@ -32,7 +32,7 @@ namespace BulgarianPlaces.Views
 
         async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
-            await Shell.Current.GoToAsync($"{nameof(ImagePage)}");
+            await Shell.Current.GoToAsync($"//HomePage/{nameof(ImagePage)}");
         }
 
         //private void TapGestureRecognizer_Tapped(object sender, EventArgs e)

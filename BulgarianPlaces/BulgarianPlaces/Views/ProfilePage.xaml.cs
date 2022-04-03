@@ -28,7 +28,7 @@ namespace BulgarianPlaces.Views
                 return;
             var location = await Geolocation.GetLastKnownLocationAsync();
             // This will push the ItemDetailPage onto the navigation stack
-            await Shell.Current.GoToAsync($"{nameof(PlaceVisitedPage)}?{nameof(ProfilePlaceVisitedDto.Id)}={profile.Id}");
+            await Shell.Current.GoToAsync($"/ProfilePage/{nameof(PlaceVisitedPage)}?{nameof(ProfilePlaceVisitedDto.Id)}={profile.Id}");
         }
 
         async void OnButtonClicked(object sender, EventArgs args)
@@ -47,7 +47,7 @@ namespace BulgarianPlaces.Views
 
         async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
-            await Shell.Current.GoToAsync($"{nameof(ImagePage)}?ImageSource=" + vm.Profile.Image);
+            await Shell.Current.GoToAsync($"/ProfilePage/{nameof(ImagePage)}?ImageSource=" + vm.Profile.Image);
         }
     }
 }
