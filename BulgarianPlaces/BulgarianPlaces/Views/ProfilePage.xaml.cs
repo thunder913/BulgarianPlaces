@@ -4,9 +4,11 @@ using System;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace BulgarianPlaces.Views
 {
+    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ProfilePage : ContentPage
     {
         public ProfileViewModel vm { get; set; }
@@ -15,8 +17,8 @@ namespace BulgarianPlaces.Views
             InitializeComponent();
             BindingContext = vm = new ProfileViewModel(true);
             Shell.SetTabBarIsVisible(this, true);
-
         }
+
         async void OnItemSelected(object item, SelectedItemChangedEventArgs e)
         {
             var listView = (ListView)item;

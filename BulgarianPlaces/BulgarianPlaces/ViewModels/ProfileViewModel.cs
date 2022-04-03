@@ -14,6 +14,7 @@ namespace BulgarianPlaces.ViewModels
     [QueryProperty(nameof(Id), nameof(Id))]
     public class ProfileViewModel : BaseViewModel
     {
+        public bool ShowSignOut { get; set; }
         public int? UserId { get; set; }
         private string id;
         public string Id
@@ -54,6 +55,7 @@ namespace BulgarianPlaces.ViewModels
                         var result = await client.GetAsync(uri);
                         var responseAsString = await result.Content.ReadAsStringAsync();
                         Profile = JsonConvert.DeserializeObject<ProfileDto>(responseAsString);
+                        ShowSignOut = true;
                     }
                     catch (Exception ex)
                     {
@@ -72,6 +74,7 @@ namespace BulgarianPlaces.ViewModels
                         var result = await client.GetAsync(uri);
                         var responseAsString = await result.Content.ReadAsStringAsync();
                         Profile = JsonConvert.DeserializeObject<ProfileDto>(responseAsString);
+                        ShowSignOut = false;
                     }
                     catch (Exception ex)
                     {
@@ -81,6 +84,7 @@ namespace BulgarianPlaces.ViewModels
                 }).Wait();
             }
             OnPropertyChanged(nameof(Profile));
+            OnPropertyChanged(nameof(ShowSignOut));
         }
     }
 }

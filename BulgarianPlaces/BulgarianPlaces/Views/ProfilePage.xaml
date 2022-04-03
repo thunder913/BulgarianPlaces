@@ -10,7 +10,7 @@
     
     <ContentPage.Content>
             <StackLayout Margin="10,10,10,0">
-            <Button Text="Sign out" WidthRequest="100" HorizontalOptions="End" CornerRadius="20" BackgroundColor="DarkRed" IsVisible="true" Clicked="OnButtonClicked"/>
+            <Button IsVisible="{Binding ShowSignOut}" Text="Sign out" WidthRequest="100" HorizontalOptions="End" CornerRadius="20" BackgroundColor="DarkRed" Clicked="OnButtonClicked"/>
             <Grid
             RowSpacing="20"
             >

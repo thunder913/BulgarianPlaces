@@ -1,7 +1,10 @@
-﻿using System;
+﻿using BulgarianPlaces.Models.HttpModels;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,29 +16,35 @@ namespace BulgarianPlaces.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AdminPage : ContentPage
     {
-        public ObservableCollection<SubmitList> Submits { get; set; } = new ObservableCollection<SubmitList>();
+        private HttpClient client { get; set; }
+        public ObservableCollection<AdminPanelDto> Submits { get; set; } = new ObservableCollection<AdminPanelDto>();
         public AdminPage()
         {
+            client = new HttpClient();
             InitializeComponent();
             BindingContext = this;
-            Submits.Add(new SubmitList() { DateSubmitted = "12/03/2022", Email = "andon_00@abv.bg"});
-            Submits.Add(new SubmitList() { DateSubmitted = "12/03/2022", Email = "andon_00@abv.bg"});
-            Submits.Add(new SubmitList() { DateSubmitted = "12/03/2022", Email = "andon_00@abv.bg"});
-            Submits.Add(new SubmitList() { DateSubmitted = "12/03/2022", Email = "andon_00@abv.bg"});
-            Submits.Add(new SubmitList() { DateSubmitted = "12/03/2022", Email = "andon_00@abv.bg"});
-            Submits.Add(new SubmitList() { DateSubmitted = "12/03/2022", Email = "andon_00@abv.bg"});
-            Submits.Add(new SubmitList() { DateSubmitted = "12/03/2022", Email = "andon_00@abv.bg"});
-            Submits.Add(new SubmitList() { DateSubmitted = "12/03/2022", Email = "andon_00@abv.bg"});
         }
         private void SubmitsView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            Shell.Current.GoToAsync($"{nameof(AdminApprovalPage)}");
+            var selectedItem = (AdminPanelDto)((ListView)sender).SelectedItem;
+            Shell.Current.GoToAsync($"{nameof(AdminApprovalPage)}?Id="+selectedItem.Id);
         }
 
-        public class SubmitList
+        protected override void OnAppearing()
         {
-            public string Email { get; set; }
-            public string DateSubmitted { get; set; }
+            base.OnAppearing();
+            Submits.Clear();
+            Task.Run(async () =>
+            {
+                Uri uri = new Uri(string.Format(GlobalConstants.Url + "Review/Admin/"));
+                var result = await client.GetAsync(uri);
+                var responseAsString = await result.Content.ReadAsStringAsync();
+                var items = JsonConvert.DeserializeObject<List<AdminPanelDto>>(responseAsString);
+                foreach (var item in items)
+                {
+                    Submits.Add(item);
+                }
+            }).Wait();
         }
     }
 }

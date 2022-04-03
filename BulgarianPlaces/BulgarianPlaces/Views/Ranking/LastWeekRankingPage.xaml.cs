@@ -26,8 +26,6 @@ namespace BulgarianPlaces.Views.Ranking
             BindingContext = vm = new RankingViewModel();
 
             Title = "Ranking";
-
-
         }
         protected override void OnAppearing()
         {

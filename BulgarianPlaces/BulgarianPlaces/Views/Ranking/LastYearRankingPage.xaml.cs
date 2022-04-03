@@ -44,10 +44,10 @@ namespace BulgarianPlaces.Views.Ranking
             }).Wait();
         }
 
-        private void PeopleView_ItemTapped(object sender, ItemTappedEventArgs e)
+        private async void PeopleView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            var selectedItem = ((ListView)sender).SelectedItem;
-            //TODO redirect to profile page
+            var selectedItem = (RankingUserDto)((ListView)sender).SelectedItem;
+            await Shell.Current.GoToAsync($"{nameof(ProfilePage)}?Id=" + selectedItem.Id);
         }
     }
 }

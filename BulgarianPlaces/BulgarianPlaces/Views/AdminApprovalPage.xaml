@@ -7,16 +7,16 @@
     <ContentPage.Content>
         <ScrollView InputTransparent="True">
             <StackLayout>
-                <Label HorizontalOptions="EndAndExpand" Text="22/03/2022 14:30:52" Padding="10"/>
-                <Label HorizontalOptions="StartAndExpand" Text="Ivan Petrov" Padding="5, 0, 0, 0" FontSize="28"/>
-                <Label HorizontalOptions="StartAndExpand" Text="ivanpetrov@gmail.com" Padding="5, 0, 0, 0" FontSize="16"/>
+                <Label HorizontalOptions="EndAndExpand" Text="{Binding Request.Date}" Padding="10"/>
+                <Label HorizontalOptions="StartAndExpand" Text="{Binding Request.Name}" Padding="5, 0, 0, 0" FontSize="28"/>
+                <Label HorizontalOptions="StartAndExpand" Text="{Binding Request.Email}" Padding="5, 0, 0, 0" FontSize="16"/>
                 <StackLayout Orientation="Horizontal" Margin="0, 10, 0, 20">
                     <Label  HorizontalTextAlignment="Center" Text="At the moment of submitting this, I am at the chosen place"/>
-                    <CheckBox Margin="0, 0, 20, 0" IsChecked="{Binding IsAtThePlace}" IsEnabled="False"/>
+                    <CheckBox Margin="0, 0, 20, 0" IsChecked="{Binding Request.Checkbox}" IsEnabled="False"/>
                 </StackLayout>
                 <maps:Map x:Name="MyMap" HeightRequest="300">
                 </maps:Map>
-                <Image Source="add_image.png"/>
+                <Image HeightRequest="200" Source="{Binding Request.Image}"/>
                 <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30" Margin="10, 0, 10, 0">
                     <StackLayout Orientation="Horizontal">
                         <local:CustomEditor 
@@ -26,7 +26,7 @@
                             HorizontalOptions="FillAndExpand" 
                             Margin="20,0,20,0"
                             IsReadOnly="True"
-                            Text="This is a description............."/>
+                            Text="{Binding Request.Description}"/>
                     </StackLayout>
                 </Frame>
                 <SearchBar
