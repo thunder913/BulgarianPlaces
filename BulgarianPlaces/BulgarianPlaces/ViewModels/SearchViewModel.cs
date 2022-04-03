@@ -1,5 +1,6 @@
 ﻿using BulgarianPlaces.Models;
 using BulgarianPlaces.Models.Enums;
+using BulgarianPlaces.Views;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -18,8 +19,10 @@ namespace BulgarianPlaces.ViewModels
     {
         public HttpClient client { get; set; }
         public ObservableCollection<SearchResult> SearchResults { get; set; } = new ObservableCollection<SearchResult>();
+        public Command AddNewReview { get; }
         public SearchViewModel()
         {
+            AddNewReview = new Command(OnAddNewReview);
             client = new HttpClient();
         }
         public ICommand PerformSearch => new Command<string>((string query) =>
@@ -38,5 +41,10 @@ namespace BulgarianPlaces.ViewModels
             }).Wait();
             OnPropertyChanged(nameof(SearchResults));
         });
+
+        public async void OnAddNewReview()
+        {
+            await Shell.Current.GoToAsync($"//SearchPage/{nameof(AddReviewPage)}");
+        }
     }
 }

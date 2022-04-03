@@ -14,6 +14,7 @@ namespace BulgarianPlaces.ViewModels
     [QueryProperty(nameof(Id), nameof(Id))]
     public class ProfileViewModel : BaseViewModel
     {
+        public Command AddNewReview { get; }
         public bool ShowSignOut { get; set; }
         public int? UserId { get; set; }
         private string id;
@@ -34,6 +35,7 @@ namespace BulgarianPlaces.ViewModels
         public ProfileDto Profile { get; set; }
         public ProfileViewModel(bool setDefaultProfile)
         {
+            AddNewReview = new Command(OnAddNewReview);
             Title = "Profile";
             client = new HttpClient();
             if (setDefaultProfile)
@@ -85,6 +87,10 @@ namespace BulgarianPlaces.ViewModels
             }
             OnPropertyChanged(nameof(Profile));
             OnPropertyChanged(nameof(ShowSignOut));
+        }
+        public async void OnAddNewReview()
+        {
+            await Shell.Current.GoToAsync($"//ProfilePage/{nameof(AddReviewPage)}");
         }
     }
 }

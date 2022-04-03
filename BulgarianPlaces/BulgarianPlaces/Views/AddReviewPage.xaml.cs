@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -17,12 +18,14 @@ namespace BulgarianPlaces.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AddReviewPage : ContentPage
     {
+        protected HttpClient client;
         public event EventHandler<Xamarin.Forms.Maps.MapClickedEventArgs> MapClicked;
         public static Position Position = new Position();
         public static int Rating { get; set; } = 3;
         private AddReviewViewModel vm { get; set; }
         public AddReviewPage()
         {
+            this.client = new HttpClient();
             InitializeComponent();
             BindingContext = vm = new AddReviewViewModel(SubmitReview);
             
@@ -78,17 +81,23 @@ namespace BulgarianPlaces.Views
 
         public void SubmitReview(Image image, string description)
         {
-            Console.WriteLine(image);
-            Console.WriteLine(description);
-            Console.WriteLine(Rating);
-            Console.WriteLine(Position.Latitude);
-            Console.WriteLine(Position.Longitude);
-            Console.WriteLine(Checkbox.IsChecked);
             Task.Run(async () =>
             {
                 var request = new GeolocationRequest(GeolocationAccuracy.Medium, TimeSpan.FromSeconds(10));
                 CancellationTokenSource cts = new CancellationTokenSource();
                 var location = await Geolocation.GetLocationAsync(request, cts.Token);
+                Uri uri = new Uri(string.Format(GlobalConstants.Url + $"Review/Add/image={image}" +
+                $"&rating={Rating}" +
+                $"&description={description}" +
+                $"&chosenLatitude={Position.Latitude}" +
+                $"&chosenLongitude={Position.Longitude}" +
+                $"&isAtLocation={Checkbox.IsChecked}" +
+                $"&userLatitude={location.Latitude}" +
+                $"&userLongitude={location.Longitude}" +
+                $"&jwt={Application.Current.Properties["token"]}"));
+                var encodedUrl = Uri.EscapeUriString(uri.AbsoluteUri);
+                var result = await client.PostAsync(encodedUrl, null);
+                var responseAsString = await result.Content.ReadAsStringAsync();
             }).Wait();
         }
 

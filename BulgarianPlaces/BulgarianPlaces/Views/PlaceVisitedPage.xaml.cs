@@ -11,6 +11,7 @@ namespace BulgarianPlaces.Views
         {
             InitializeComponent();
             BindingContext = vm = new PlaceVisitedViewModel(ChangeTextColor);
+            Title = "Review";
         }
 
         void Reset()
