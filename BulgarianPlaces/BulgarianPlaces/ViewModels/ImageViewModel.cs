@@ -29,7 +29,7 @@ namespace BulgarianPlaces.ViewModels
         {
         }
 
-        public async void ChangeImage(string image)
+        public void ChangeImage(string image)
         {
             this.Image = image;
         }

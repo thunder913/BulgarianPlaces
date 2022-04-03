@@ -9,10 +9,11 @@ namespace BulgarianPlaces.Views
 {
     public partial class ProfilePage : ContentPage
     {
+        public ProfileViewModel vm { get; set; }
         public ProfilePage()
         {
             InitializeComponent();
-            BindingContext = new ProfileViewModel();
+            BindingContext = vm = new ProfileViewModel(true);
             Shell.SetTabBarIsVisible(this, true);
 
         }
@@ -44,7 +45,7 @@ namespace BulgarianPlaces.Views
 
         async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
-            await Shell.Current.GoToAsync($"{nameof(ImagePage)}?ImageSource=admin.png");
+            await Shell.Current.GoToAsync($"{nameof(ImagePage)}?ImageSource=" + vm.Profile.Image);
         }
     }
 }

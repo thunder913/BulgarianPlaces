@@ -70,8 +70,8 @@ namespace BulgarianPlaces.Views
                         LastY = TranslationY;
                         break;
                     case GestureStatus.Running:
-                        TranslationX = Clamp(LastX + e.TotalX * Scale, -Width / 2, Width / 2);
-                        TranslationY = Clamp(LastY + e.TotalY * Scale, -Height / 2, Height / 2);
+                        TranslationX = Clamp(LastX + e.TotalX * Scale, -Width, Width);
+                        TranslationY = Clamp(LastY + e.TotalY * Scale, -Height, Height);
                         break;
                 }
         }

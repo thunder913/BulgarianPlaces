@@ -16,13 +16,14 @@ namespace BulgarianPlaces.Views.Ranking
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LastWeekRanking : ContentPage
     {
+        public RankingViewModel vm { get; set; }
         public HttpClient client = new HttpClient();
         public ObservableCollection<RankingUserDto> People { get; set; } = new ObservableCollection<RankingUserDto>();
         public LastWeekRanking()
         {
             InitializeComponent();
             PeopleView.ItemsSource = People;
-            BindingContext = new RankingViewModel();
+            BindingContext = vm = new RankingViewModel();
 
             Title = "Ranking";
 
@@ -45,10 +46,10 @@ namespace BulgarianPlaces.Views.Ranking
             }).Wait();
         }
 
-        private void PeopleView_ItemTapped(object sender, ItemTappedEventArgs e)
+        private async void PeopleView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            var selectedItem = ((ListView)sender).SelectedItem;
-            //TODO redirect to profile page
+            var selectedItem = (RankingUserDto)((ListView)sender).SelectedItem;
+            await Shell.Current.GoToAsync($"{nameof(ProfilePage)}?Id=" + selectedItem.Id);
         }
     }
 }
