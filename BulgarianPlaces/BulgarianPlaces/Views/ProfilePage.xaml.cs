@@ -19,7 +19,7 @@ namespace BulgarianPlaces.Views
             Shell.SetTabBarIsVisible(this, true);
         }
 
-        async void OnItemSelected(object item, SelectedItemChangedEventArgs e)
+        public async void OnItemSelected(object item, SelectedItemChangedEventArgs e)
         {
             var listView = (ListView)item;
 

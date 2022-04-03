@@ -1,6 +1,6 @@
 ﻿namespace BulgarianPlaces.Models.Enums
 {
-    public enum SearchType
+    public enum SearchResultType
     {
         Person,
         Place

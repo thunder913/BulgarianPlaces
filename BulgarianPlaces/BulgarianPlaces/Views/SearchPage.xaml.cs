@@ -1,4 +1,5 @@
 ﻿using BulgarianPlaces.Models;
+using BulgarianPlaces.Models.Enums;
 using BulgarianPlaces.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,6 @@ namespace BulgarianPlaces.Views
 {
     public partial class SearchPage : ContentPage
     {
-
         public SearchPage()
         {
             InitializeComponent();
@@ -28,12 +28,16 @@ namespace BulgarianPlaces.Views
         {
             var listView = (ListView)item;
 
-            var profile = (Models.SearchResult)listView.SelectedItem;
-            if (profile == null)
-                return;
+            var search = (Models.SearchResult)listView.SelectedItem;
 
-            // This will push the ItemDetailPage onto the navigation stack
-            await Shell.Current.GoToAsync($"{nameof(PlaceVisitedPage)}?{nameof(ProfilePlace.Id)}={profile.Id}");
+            if (search.SearchType == SearchResultType.Person)
+            {
+                await Shell.Current.GoToAsync($"{nameof(ProfilePage)}?{nameof(search.Id)}={search.Id}");
+            }
+            else
+            {
+                await Shell.Current.GoToAsync($"{nameof(PlaceVisitedPage)}?{nameof(search.Id)}={search.Id}");
+            }
         }
     }
 }
