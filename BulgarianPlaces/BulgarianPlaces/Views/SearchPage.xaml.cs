@@ -36,7 +36,7 @@ namespace BulgarianPlaces.Views
             }
             else
             {
-                await Shell.Current.GoToAsync($"//SearchPage/{nameof(PlaceVisitedPage)}?{nameof(search.Id)}={search.Id}");
+                await Shell.Current.GoToAsync($"//SearchPage/{nameof(PlacePage)}?{nameof(search.Id)}={search.Id}");
             }
         }
     }

@@ -34,6 +34,7 @@ namespace BulgarianPlaces
             Routing.RegisterRoute(nameof(AdminPage), typeof(AdminPage));
             Routing.RegisterRoute(nameof(AdminApprovalPage), typeof(AdminApprovalPage));
             Routing.RegisterRoute(nameof(ImagePage), typeof(ImagePage));
+            Routing.RegisterRoute(nameof(PlacePage), typeof(PlacePage));
 
             //Ranking pages
             Routing.RegisterRoute(nameof(LastWeekRanking), typeof(LastWeekRanking));
