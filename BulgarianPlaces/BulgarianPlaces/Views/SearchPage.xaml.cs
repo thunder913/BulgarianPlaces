@@ -21,7 +21,6 @@ namespace BulgarianPlaces.Views
             InitializeComponent();
             Title = "Search people and landmarks";
             BindingContext = new SearchViewModel();
-
         }
 
         public async void OnItemSelected(object item, SelectedItemChangedEventArgs e)

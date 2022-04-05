@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BulgarianPlaces.Views.PlaceVisitedPage"
-             xmlns:local="clr-namespace:BulgarianPlaces.ViewModels">
+             xmlns:local="clr-namespace:BulgarianPlaces.ViewModels"
+             Shell.TabBarIsVisible="True">
 
     <ContentPage.Content>
         <StackLayout Spacing="0">

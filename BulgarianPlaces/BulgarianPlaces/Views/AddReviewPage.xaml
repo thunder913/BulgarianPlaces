@@ -5,7 +5,8 @@
              xmlns:local="clr-namespace:BulgarianPlaces.ViewModels"
              xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps" 
              xmlns:local1="clr-namespace:BulgarianPlaces.Models"
-             x:DataType="local:AddReviewViewModel">
+             x:DataType="local:AddReviewViewModel"
+             Shell.TabBarIsVisible="True">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Submit" Command="{Binding SubmitReview}"/>
     </ContentPage.ToolbarItems>

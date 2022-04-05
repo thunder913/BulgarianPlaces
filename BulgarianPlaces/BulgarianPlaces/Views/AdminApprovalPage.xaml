@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps" 
              xmlns:local="clr-namespace:BulgarianPlaces.Models"
-             x:Class="BulgarianPlaces.Views.AdminApprovalPage">
+             x:Class="BulgarianPlaces.Views.AdminApprovalPage"
+             Shell.TabBarIsVisible="True">
     <ContentPage.Content>
         <ScrollView InputTransparent="True">
             <StackLayout>

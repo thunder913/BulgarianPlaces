@@ -4,7 +4,8 @@
              x:Class="BulgarianPlaces.Views.AboutPage"
              xmlns:vm="clr-namespace:BulgarianPlaces.ViewModels" 
              xmlns:controls="clr-namespace:BulgarianPlaces.Handlers"
-             Title="{Binding Title}">
+             Title="{Binding Title}"
+             Shell.TabBarIsVisible="True">
 
     <Shell.SearchHandler>
         <controls:MySearchHandler

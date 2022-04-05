@@ -16,7 +16,6 @@ namespace BulgarianPlaces.Views
         {
             InitializeComponent();
             this.BindingContext = new LoginViewModel(DisplayAlert);
-            Shell.SetTabBarIsVisible(this, false);
         }
         public async Task DisplayAlert(string text)
         {

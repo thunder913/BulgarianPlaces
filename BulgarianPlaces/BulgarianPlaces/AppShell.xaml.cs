@@ -116,7 +116,6 @@ namespace BulgarianPlaces
             }
         }
 
-
         public void RemoveTab()
         {
             AppTabBar.Items.RemoveAt(1);

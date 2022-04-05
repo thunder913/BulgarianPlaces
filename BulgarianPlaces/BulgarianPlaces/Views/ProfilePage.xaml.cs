@@ -16,7 +16,6 @@ namespace BulgarianPlaces.Views
         {
             InitializeComponent();
             BindingContext = vm = new ProfileViewModel(true);
-            Shell.SetTabBarIsVisible(this, true);
         }
 
         public async void OnItemSelected(object item, SelectedItemChangedEventArgs e)
