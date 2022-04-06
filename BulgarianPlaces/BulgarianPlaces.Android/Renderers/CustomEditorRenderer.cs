@@ -15,7 +15,7 @@ using System.Text;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
-[assembly: ExportRenderer(typeof(CustomEditor), typeof(CustomEditorRenderer))]
+[assembly: ExportRenderer(typeof(MyImage), typeof(CustomEditorRenderer))]
 namespace BulgarianPlaces.Droid.Renderers
 {
     class CustomEditorRenderer : EditorRenderer

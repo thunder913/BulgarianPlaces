@@ -67,6 +67,7 @@
     <Compile Include="MainActivity.cs" />
     <Compile Include="PhotoPickerService.cs" />
     <Compile Include="Renderers\CustomEditorRenderer.cs" />
+    <Compile Include="Renderers\MyImageRenderer.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

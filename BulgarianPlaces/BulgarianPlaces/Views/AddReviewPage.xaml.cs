@@ -1,4 +1,5 @@
 ﻿using BulgarianPlaces.Handlers;
+using BulgarianPlaces.Models;
 using BulgarianPlaces.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,7 @@ namespace BulgarianPlaces.Views
     public partial class AddReviewPage : ContentPage
     {
         protected HttpClient client;
+        public string ImageBase64 { get; set; }
         public event EventHandler<Xamarin.Forms.Maps.MapClickedEventArgs> MapClicked;
         public static Position Position = new Position();
         public static int Rating { get; set; } = 3;
@@ -27,7 +29,7 @@ namespace BulgarianPlaces.Views
         {
             this.client = new HttpClient();
             InitializeComponent();
-            BindingContext = vm = new AddReviewViewModel(SubmitReview);
+            BindingContext = vm = new AddReviewViewModel(SubmitReview, image);
             
             Reset();
             ChangeTextColor(Rating, Color.Black);
@@ -75,7 +77,12 @@ namespace BulgarianPlaces.Views
             Stream stream = await DependencyService.Get<IPhotoPickerService>().GetImageStreamAsync();
             if (stream != null)
             {
-                vm.image.Source = ImageSource.FromStream(() => stream);
+                //vm.image.Source = ImageSource.FromStream(() => stream);
+                //this.ImageStream = stream;
+                var bytes = new byte[stream.Length];
+                await stream.ReadAsync(bytes, 0, (int)stream.Length);
+                ImageBase64 = Convert.ToBase64String(bytes);
+                vm.ChangeImage(ImageBase64);
             }
         }
 
@@ -86,17 +93,19 @@ namespace BulgarianPlaces.Views
                 var request = new GeolocationRequest(GeolocationAccuracy.Medium, TimeSpan.FromSeconds(10));
                 CancellationTokenSource cts = new CancellationTokenSource();
                 var location = await Geolocation.GetLocationAsync(request, cts.Token);
-                Uri uri = new Uri(string.Format(GlobalConstants.Url + $"Review/Add/image={image}" +
-                $"&rating={Rating}" +
-                $"&description={description}" +
-                $"&chosenLatitude={Position.Latitude}" +
-                $"&chosenLongitude={Position.Longitude}" +
-                $"&isAtLocation={Checkbox.IsChecked}" +
-                $"&userLatitude={location.Latitude}" +
-                $"&userLongitude={location.Longitude}" +
-                $"&jwt={Application.Current.Properties["token"]}"));
-                var encodedUrl = Uri.EscapeUriString(uri.AbsoluteUri);
-                var result = await client.PostAsync(encodedUrl, null);
+                Uri uri = new Uri(string.Format(GlobalConstants.Url + $"Review/Add"));
+                var form = new MultipartFormDataContent();
+                form.Add(new StringContent(ImageBase64), "image");
+                form.Add(new StringContent(description ?? string.Empty), "description");
+                form.Add(new StringContent(Rating.ToString()), "rating");
+                form.Add(new StringContent(Position.Latitude.ToString()), "chosenLatitude");
+                form.Add(new StringContent(Position.Longitude.ToString()), "chosenLongitude");
+                form.Add(new StringContent(Checkbox.IsChecked.ToString()), "isAtLocation");
+                form.Add(new StringContent(location.Latitude.ToString()), "userLatitude");
+                form.Add(new StringContent(location.Longitude.ToString()), "userLongitude");
+                form.Add(new StringContent(Application.Current.Properties["token"].ToString()), "jwt");
+                form.Headers.ContentType.MediaType = "multipart/form-data";
+                var result = await client.PostAsync(uri, form);
                 var responseAsString = await result.Content.ReadAsStringAsync();
             }).Wait();
         }
