@@ -1,7 +1,9 @@
-﻿using BulgarianPlaces.Models.HttpModels;
+﻿using BulgarianPlaces.Models;
+using BulgarianPlaces.Models.HttpModels;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,8 +15,18 @@ namespace BulgarianPlaces.ViewModels
     [QueryProperty(nameof(Id), nameof(Id))]
     public class AdminApprovalViewModel : BaseViewModel
     {
+        public ObservableCollection<SearchResult> SearchResults { get; set; } = new ObservableCollection<SearchResult>();
         public AdminApprovalDto Request { get; set; }
-        private HttpClient client { get; set; }
+        public HttpClient client { get; set; }
+        private string _newPlace { get; set; }
+        public string NewPlace
+        {
+            get => _newPlace; set
+            {
+                _newPlace = value;
+                this.OnPropertyChanged(nameof(NewPlace));
+            }
+        }
         public int RequestId { get; set; }
         private string id;
         public string Id

@@ -36,9 +36,38 @@
                 CancelButtonColor="Black"
                 SearchCommand="{Binding PerformSearch}"
                 SearchCommandParameter="{Binding Text, Source={x:Reference searchBar}}"
-                Margin="-20, 0, 0, 0"/>
+                Margin="-20, 0, 0, 0"
+                SearchButtonPressed="searchBar_SearchButtonPressed"
+                TextChanged="searchBar_TextChanged"/>
+                <ListView x:Name="SearchResults"
+                    ItemsSource="{Binding SearchResults}"
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Margin="5, 0, 5, 0"
+                    ItemTapped="OnItemSelected"
+                    HeightRequest="0"
+                    >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="20*"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="100"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Source="{Binding Image}" Grid.Column="0" Grid.Row="0" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                    <Label Text="{Binding Name}" Grid.Column="1" Grid.Row="0" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
                 <Label Text="or"/>
-                <Entry Placeholder="Add a new place"/>
+                <Entry Placeholder="Add a new place" Text="{Binding NewPlace, Mode=TwoWay}" TextChanged="Entry_TextChanged"/>
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition/>
@@ -47,8 +76,8 @@
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <Button Grid.Row="0" Grid.Column="0" Text="Accept" Background="green" Margin="20" CornerRadius="200"/>
-                    <Button Grid.Row="0" Grid.Column="1" Text="Decline" Background="red" Margin="20" CornerRadius="200"/>
+                    <Button Grid.Row="0" Grid.Column="0" Text="Accept" Background="green" Margin="20" CornerRadius="200" Clicked="AcceptButtonClicked"/>
+                    <Button Grid.Row="0" Grid.Column="1" Text="Decline" Background="red" Margin="20" CornerRadius="200" Clicked="DeclineButtonClicked"/>
                 </Grid>
             </StackLayout>
         </ScrollView>

@@ -77,8 +77,6 @@ namespace BulgarianPlaces.Views
             Stream stream = await DependencyService.Get<IPhotoPickerService>().GetImageStreamAsync();
             if (stream != null)
             {
-                //vm.image.Source = ImageSource.FromStream(() => stream);
-                //this.ImageStream = stream;
                 var bytes = new byte[stream.Length];
                 await stream.ReadAsync(bytes, 0, (int)stream.Length);
                 ImageBase64 = Convert.ToBase64String(bytes);
