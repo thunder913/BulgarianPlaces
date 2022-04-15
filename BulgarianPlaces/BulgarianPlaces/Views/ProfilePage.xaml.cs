@@ -48,5 +48,10 @@ namespace BulgarianPlaces.Views
         {
             await Shell.Current.GoToAsync($"/{nameof(ImagePage)}?ImageSource=" + vm.Profile.Image);
         }
+
+        protected override void OnAppearing()
+        {
+            vm.SetUserProfile();
+        }
     }
 }

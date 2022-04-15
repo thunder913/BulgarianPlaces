@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -61,12 +62,11 @@ namespace BulgarianPlaces.Views
             {
 
             }
-
         }
 
         private void searchBar_TextChanged(object sender, TextChangedEventArgs e)
         {
-            
+
             var searchBar = (SearchBar)sender;
             if (string.IsNullOrWhiteSpace(searchBar.SearchCommandParameter.ToString()))
             {
@@ -86,34 +86,36 @@ namespace BulgarianPlaces.Views
             }
         }
 
-        private void AcceptButtonClicked(object sender, EventArgs e)
+        private async void AcceptButtonClicked(object sender, EventArgs e)
         {
-            Task.Run(async () =>
+            Uri uri = new Uri(string.Format(GlobalConstants.Url + $"Review/approve"));
+            var form = new MultipartFormDataContent();
+            form.Add(new StringContent(vm.Id), "id");
+            form.Add(new StringContent(SelectedItem?.Id.ToString() ?? string.Empty), "placeId");
+            form.Add(new StringContent(Application.Current.Properties["token"].ToString()), "jwtToken");
+            var result = await vm.client.PostAsync(uri, form);
+            var responseAsString = await result.Content.ReadAsStringAsync();
+            if (result.StatusCode == HttpStatusCode.BadRequest)
             {
-                Uri uri = new Uri(string.Format(GlobalConstants.Url + $"Review/approve"));
-                var form = new MultipartFormDataContent();
-                form.Add(new StringContent(vm.Id), "id");
-                form.Add(new StringContent(SelectedItem?.Id.ToString() ?? string.Empty), "placeId");
-                form.Add(new StringContent(Application.Current.Properties["token"].ToString()), "jwtToken");
-                var result = await vm.client.PostAsync(uri, form);
-                var responseAsString = await result.Content.ReadAsStringAsync();
-            }).Wait();
-            // TODO make it go the previous page
+                vm.ErrorMessage = "Провери, дали си избрал мястото, където се намира ревюто.";
+                await DisplayAlert("Грешка", vm.ErrorMessage, "Ок");
+            }
+            else
+            {
+                await Shell.Current.GoToAsync($"..");
+            }
         }
 
-        private void DeclineButtonClicked(object sender, EventArgs e)
+        private async void DeclineButtonClicked(object sender, EventArgs e)
         {
-            Task.Run(async () =>
-            {
-                Uri uri = new Uri(string.Format(GlobalConstants.Url + $"Review/decline"));
-                var form = new MultipartFormDataContent();
-                form.Add(new StringContent(vm.Id), "id");
-                form.Add(new StringContent(SelectedItem?.Id.ToString() ?? string.Empty), "placeId");
-                form.Add(new StringContent(Application.Current.Properties["token"].ToString()), "jwtToken");
-                var result = await vm.client.PostAsync(uri, form);
-                var responseAsString = await result.Content.ReadAsStringAsync();
-            }).Wait();
-            // TODO make it go the previous page
+            Uri uri = new Uri(string.Format(GlobalConstants.Url + $"Review/decline"));
+            var form = new MultipartFormDataContent();
+            form.Add(new StringContent(vm.Id), "id");
+            form.Add(new StringContent(SelectedItem?.Id.ToString() ?? string.Empty), "placeId");
+            form.Add(new StringContent(Application.Current.Properties["token"].ToString()), "jwtToken");
+            var result = await vm.client.PostAsync(uri, form);
+            var responseAsString = await result.Content.ReadAsStringAsync();
+            await Shell.Current.GoToAsync($"..");
         }
     }
 }

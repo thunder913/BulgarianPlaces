@@ -4,7 +4,8 @@
              xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps" 
              xmlns:local="clr-namespace:BulgarianPlaces.Models"
              x:Class="BulgarianPlaces.Views.AdminApprovalPage"
-             Shell.TabBarIsVisible="True">
+             Shell.TabBarIsVisible="True"
+             Title="Review">
     <ContentPage.Content>
         <ScrollView InputTransparent="True">
             <StackLayout>

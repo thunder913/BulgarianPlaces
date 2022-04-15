@@ -15,6 +15,15 @@ namespace BulgarianPlaces.ViewModels
     [QueryProperty(nameof(Id), nameof(Id))]
     public class AdminApprovalViewModel : BaseViewModel
     {
+        private string _errorMessage { get; set; }
+        public string ErrorMessage
+        {
+            get => _errorMessage; set
+            {
+                _errorMessage = value;
+                this.OnPropertyChanged(nameof(ErrorMessage));
+            }
+        }
         public ObservableCollection<SearchResult> SearchResults { get; set; } = new ObservableCollection<SearchResult>();
         public AdminApprovalDto Request { get; set; }
         public HttpClient client { get; set; }

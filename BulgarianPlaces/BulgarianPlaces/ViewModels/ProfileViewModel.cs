@@ -44,7 +44,7 @@ namespace BulgarianPlaces.ViewModels
             }
         }
 
-        private void SetUserProfile()
+        public void SetUserProfile()
         {
             if (UserId == null)
             {
