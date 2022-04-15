@@ -26,5 +26,10 @@ namespace BulgarianPlaces.Views
             Uri uri = new Uri($"https://maps.google.com/?q={vm.Place.Latitude},{vm.Place.Longitude}");
             await Browser.OpenAsync(uri, BrowserLaunchMode.SystemPreferred);
         }
+
+        private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync($"/{nameof(ImagePage)}?ImageSource=" + vm.Place.Image);
+        }
     }
 }

@@ -35,8 +35,8 @@
                        >
                         <Image.GestureRecognizers>
                             <TapGestureRecognizer
-                                NumberOfTapsRequired="1"/>
-                            <!--Tapped="TapGestureRecognizer_Tapped"/>-->
+                                NumberOfTapsRequired="2"
+                                Tapped="TapGestureRecognizer_Tapped"/>
                         </Image.GestureRecognizers>
                     </Image>
                 </Frame>

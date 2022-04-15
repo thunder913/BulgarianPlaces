@@ -18,7 +18,13 @@
                 </StackLayout>
                 <maps:Map x:Name="MyMap" HeightRequest="300">
                 </maps:Map>
-                <Image HeightRequest="200" Source="{Binding Request.Image}"/>
+                <Image HeightRequest="200" Source="{Binding Request.Image}">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer
+                                NumberOfTapsRequired="2"
+                                Tapped="TapGestureRecognizer_Tapped"/>
+                    </Image.GestureRecognizers>
+                </Image>
                 <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30" Margin="10, 0, 10, 0">
                     <StackLayout Orientation="Horizontal">
                         <local:CustomEditor 

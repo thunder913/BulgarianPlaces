@@ -84,10 +84,8 @@ namespace BulgarianPlaces.Views
             }
         }
 
-        public void SubmitReview(Image image, string description)
+        public async void SubmitReview(Image image, string description)
         {
-            Task.Run(async () =>
-            {
                 var request = new GeolocationRequest(GeolocationAccuracy.Medium, TimeSpan.FromSeconds(10));
                 CancellationTokenSource cts = new CancellationTokenSource();
                 var location = await Geolocation.GetLocationAsync(request, cts.Token);
@@ -105,7 +103,6 @@ namespace BulgarianPlaces.Views
                 form.Headers.ContentType.MediaType = "multipart/form-data";
                 var result = await client.PostAsync(uri, form);
                 var responseAsString = await result.Content.ReadAsStringAsync();
-            }).Wait();
         }
 
     }

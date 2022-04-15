@@ -16,8 +16,8 @@
                 <Image x:Name="image" HeightRequest="200" Margin="0, 20, 0, 0">
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer
-                Tapped="OnPickPhotoButtonClicked"
-                NumberOfTapsRequired="1" />
+                            Tapped="OnPickPhotoButtonClicked"
+                            NumberOfTapsRequired="2" />
                     </Image.GestureRecognizers>
                 </Image>
                 <StackLayout Orientation="Horizontal" x:Name="rattingBar" Margin="0, 15, 10, 0" HorizontalOptions="CenterAndExpand">

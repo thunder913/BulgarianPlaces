@@ -117,5 +117,10 @@ namespace BulgarianPlaces.Views
             var responseAsString = await result.Content.ReadAsStringAsync();
             await Shell.Current.GoToAsync($"..");
         }
+
+        private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync($"/{nameof(ImagePage)}?ImageSource=" + vm.Request.Image);
+        }
     }
 }

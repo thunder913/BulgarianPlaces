@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:viewmodels="clr-namespace:BulgarianPlaces.ViewModels" x:DataType="viewmodels:ImageViewModel"
              x:Class="BulgarianPlaces.Views.ImagePage"
-             Shell.TabBarIsVisible="True">
+             Shell.TabBarIsVisible="True"
+             Title="Image">
     <ContentPage.Content>
         <StackLayout>
             <Image Source="{Binding Image}" x:Name="MyImage" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
