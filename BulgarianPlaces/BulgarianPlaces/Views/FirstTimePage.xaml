@@ -5,31 +5,33 @@
              Shell.NavBarIsVisible="False"
              Shell.TabBarIsVisible="False">
     <ContentPage.Content>
-            <ScrollView InputTransparent="True">
-            <StackLayout>
-                <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30" Margin="10, 0, 10, 0">
+            <StackLayout Margin="10, 10, 10, 0">
+                <Label Text="Ще ни трябват още няколко данни относно теб.." FontSize="24" FontAttributes="Bold"/>
+            <Label Text="Преди да можеш да ползваш приложението, трябва да попълниш, няколко данни за теб. Те ще бъдат видими на профилната ти страница от всички потребители." FontSize="16"/>
+            <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30" Margin="10, 5, 10, 0">
                     <StackLayout Orientation="Horizontal">
-                        <local1:CustomEditor Text="{Binding FirstName, Mode=TwoWay}" HeightRequest="50" Placeholder="Лично име" TextColor="black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="20,0,20,0"/>
+                        <local1:CustomEditor Text="{Binding FirstName, Mode=TwoWay}" HeightRequest="40" Placeholder="Лично име" TextColor="black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="20,0,20,0"/>
                     </StackLayout>
                 </Frame>
                 <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30" Margin="10, 0, 10, 0">
                     <StackLayout Orientation="Horizontal">
-                        <local1:CustomEditor Text="{Binding LastName, Mode=TwoWay}" HeightRequest="50" Placeholder="Фамилно име" TextColor="black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="20,0,20,0"/>
+                        <local1:CustomEditor Text="{Binding LastName, Mode=TwoWay}" HeightRequest="40" Placeholder="Фамилно име" TextColor="black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="20,0,20,0"/>
                     </StackLayout>
                 </Frame>
                 <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30" Margin="10, 0, 10, 0">
                     <StackLayout Orientation="Horizontal">
-                        <local1:CustomEditor Text="{Binding Description, Mode=TwoWay}" HeightRequest="100" Placeholder="Описание" TextColor="black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="20,0,20,0"/>
+                        <local1:CustomEditor Text="{Binding Description, Mode=TwoWay}" HeightRequest="80" Placeholder="Описание" TextColor="black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="20,0,20,0"/>
                     </StackLayout>
                 </Frame>
-                <Image x:Name="image" HeightRequest="200" Margin="0, 20, 0, 0">
+                <Label Text="Профилна снимка:" FontSize="16"/>
+                <Image x:Name="image" HeightRequest="200" Margin="0, 5, 0, 0">
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer
                             Tapped="OnPickPhotoButtonClicked"
                             NumberOfTapsRequired="2" />
                     </Image.GestureRecognizers>
                 </Image>
+                <Button Text="Потвърди" Background="green" Margin="20" CornerRadius="200" Clicked="Button_Clicked"/>
             </StackLayout>
-        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
