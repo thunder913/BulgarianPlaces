@@ -4,5 +4,6 @@
     {
         public int Id { get; set; }
         public bool IsAdmin { get; set; }
+        public bool HasCompletedFirstTime { get; set; }
     }
 }

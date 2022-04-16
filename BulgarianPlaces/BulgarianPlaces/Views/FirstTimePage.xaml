@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local1="clr-namespace:BulgarianPlaces.Models"
+             x:Class="BulgarianPlaces.Views.FirstTimePage"
+             Shell.NavBarIsVisible="False"
+             Shell.TabBarIsVisible="False">
+    <ContentPage.Content>
+            <ScrollView InputTransparent="True">
+            <StackLayout>
+                <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30" Margin="10, 0, 10, 0">
+                    <StackLayout Orientation="Horizontal">
+                        <local1:CustomEditor Text="{Binding FirstName, Mode=TwoWay}" HeightRequest="50" Placeholder="Лично име" TextColor="black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="20,0,20,0"/>
+                    </StackLayout>
+                </Frame>
+                <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30" Margin="10, 0, 10, 0">
+                    <StackLayout Orientation="Horizontal">
+                        <local1:CustomEditor Text="{Binding LastName, Mode=TwoWay}" HeightRequest="50" Placeholder="Фамилно име" TextColor="black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="20,0,20,0"/>
+                    </StackLayout>
+                </Frame>
+                <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30" Margin="10, 0, 10, 0">
+                    <StackLayout Orientation="Horizontal">
+                        <local1:CustomEditor Text="{Binding Description, Mode=TwoWay}" HeightRequest="100" Placeholder="Описание" TextColor="black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="20,0,20,0"/>
+                    </StackLayout>
+                </Frame>
+                <Image x:Name="image" HeightRequest="200" Margin="0, 20, 0, 0">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer
+                            Tapped="OnPickPhotoButtonClicked"
+                            NumberOfTapsRequired="2" />
+                    </Image.GestureRecognizers>
+                </Image>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

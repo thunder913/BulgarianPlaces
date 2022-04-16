@@ -18,6 +18,7 @@ namespace BulgarianPlaces
         public HttpClient client = new HttpClient();
         public static bool IsLoggedIn { get; set; } = false;
         public static bool IsAdmin { get; set; } = true;
+        public static bool HasCompletedFirstTime { get; set; } = false;
         public static TabBar RootTab;
         public AppShell()
         {
@@ -35,6 +36,7 @@ namespace BulgarianPlaces
             Routing.RegisterRoute(nameof(AdminApprovalPage), typeof(AdminApprovalPage));
             Routing.RegisterRoute(nameof(ImagePage), typeof(ImagePage));
             Routing.RegisterRoute(nameof(PlacePage), typeof(PlacePage));
+            Routing.RegisterRoute(nameof(FirstTimePage), typeof(FirstTimePage));
 
             //Ranking pages
             Routing.RegisterRoute(nameof(LastWeekRanking), typeof(LastWeekRanking));
@@ -61,6 +63,7 @@ namespace BulgarianPlaces
                         IsLoggedIn = true;
                         var response = await result.Content.ReadAsStringAsync();
                         var loginResponse = JsonConvert.DeserializeObject<VerifyTokenDto>(response);
+                        HasCompletedFirstTime = loginResponse.HasCompletedFirstTime;
                         if (loginResponse.IsAdmin)
                         {
                             IsAdmin = true;
@@ -104,14 +107,25 @@ namespace BulgarianPlaces
             }
             else
             {
-                SetTabBarIsVisible(this, true);
+                // If the user has not completed the first time login part, we show him the page
+                if (!HasCompletedFirstTime)
+                {
+                    Task.Run(async () =>
+                    {
+                        await this.GoToAsync($"/{nameof(FirstTimePage)}");
+                    }).Wait();
+                }
+                else
+                {
+                    SetTabBarIsVisible(this, true);
+                }
             }
 
             if (!IsLoggedIn || !IsAdmin)
             {
-                if (AppShell.RootTab.Items.Count == 4)
+                if (this.Items.Count == 4)
                 {
-                    AppShell.RootTab.Items.RemoveAt(2);
+                    this.Items.RemoveAt(2);
                 }
             }
         }

@@ -80,7 +80,14 @@ namespace BulgarianPlaces.ViewModels
                 }
             }
             await Application.Current.SavePropertiesAsync();
-            await Shell.Current.GoToAsync($"//{nameof(ProfilePage)}");
+            if (!loginResponse.HasCompletedFirstTime)
+            {
+                await Shell.Current.GoToAsync($"/{nameof(FirstTimePage)}");
+            }
+            else
+            {
+                await Shell.Current.GoToAsync($"//{nameof(ProfilePage)}");
+            }
         }
 
         private async void GoToRegister(object obj)
