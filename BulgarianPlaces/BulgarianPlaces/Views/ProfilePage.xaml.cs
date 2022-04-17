@@ -26,8 +26,8 @@ namespace BulgarianPlaces.Views
             if (profile == null)
                 return;
             var location = await Geolocation.GetLastKnownLocationAsync();
-            // This will push the ItemDetailPage onto the navigation stack
-            await Shell.Current.GoToAsync($"/{nameof(PlaceVisitedPage)}?{nameof(ProfilePlaceVisitedDto.Id)}={profile.Id}");
+            var stack = Shell.Current.Navigation.NavigationStack;
+            await Shell.Current.GoToAsync($"{nameof(PlaceVisitedPage)}?{nameof(ProfilePlaceVisitedDto.Id)}={profile.Id}");
         }
 
         async void OnButtonClicked(object sender, EventArgs args)
