@@ -8,7 +8,7 @@
              Title="Review">
     <ContentPage.Content>
         <ScrollView InputTransparent="True">
-            <StackLayout>
+            <StackLayout Margin="20, 0, 20, 0">
                 <Label HorizontalOptions="EndAndExpand" Text="{Binding Request.Date}" Padding="10"/>
                 <Label HorizontalOptions="StartAndExpand" Text="{Binding Request.Name}" Padding="5, 0, 0, 0" FontSize="28"/>
                 <Label HorizontalOptions="StartAndExpand" Text="{Binding Request.Email}" Padding="5, 0, 0, 0" FontSize="16"/>

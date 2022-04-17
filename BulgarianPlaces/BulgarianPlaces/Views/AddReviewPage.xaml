@@ -12,15 +12,15 @@
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <ScrollView InputTransparent="True">
-            <StackLayout CascadeInputTransparent="False">
-                <Image x:Name="image" HeightRequest="200" Margin="0, 20, 0, 0">
+            <StackLayout CascadeInputTransparent="False" Margin="20, 20, 20, 10">
+                <Image x:Name="image" HeightRequest="200">
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer
                             Tapped="OnPickPhotoButtonClicked"
                             NumberOfTapsRequired="2" />
                     </Image.GestureRecognizers>
                 </Image>
-                <StackLayout Orientation="Horizontal" x:Name="rattingBar" Margin="0, 15, 10, 0" HorizontalOptions="CenterAndExpand">
+                <StackLayout Orientation="Horizontal" x:Name="rattingBar" Margin="0, 15, 0, 0" HorizontalOptions="CenterAndExpand">
                     <Label Text="★" FontSize="36" x:Name="star1" StyleId="star1">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer
@@ -52,7 +52,7 @@
                         </Label.GestureRecognizers>
                     </Label>
                 </StackLayout>
-                <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30" Margin="10, 0, 10, 0">
+                <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30" Margin="0, 0, 0, 0">
                     <StackLayout Orientation="Horizontal">
                         <local1:CustomEditor Text="{Binding Description, Mode=TwoWay}" HeightRequest="100" Placeholder="It is a great/bad place, because...." TextColor="black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="20,0,20,0"/>
                     </StackLayout>
