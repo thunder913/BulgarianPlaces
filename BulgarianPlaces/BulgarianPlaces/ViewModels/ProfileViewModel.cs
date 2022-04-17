@@ -36,7 +36,7 @@ namespace BulgarianPlaces.ViewModels
         public ProfileViewModel(bool setDefaultProfile)
         {
             AddNewReview = new Command(OnAddNewReview);
-            Title = "Profile";
+            Title = "Профил";
             client = new HttpClient();
             if (setDefaultProfile)
             {

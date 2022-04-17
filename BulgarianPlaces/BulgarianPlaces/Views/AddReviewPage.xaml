@@ -6,9 +6,10 @@
              xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps" 
              xmlns:local1="clr-namespace:BulgarianPlaces.Models"
              x:DataType="local:AddReviewViewModel"
+             Title="Добави ревю"
              Shell.TabBarIsVisible="True">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Submit" Command="{Binding SubmitReview}"/>
+        <ToolbarItem Text="Изпрати" Command="{Binding SubmitReview}"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <ScrollView InputTransparent="True">
@@ -54,14 +55,14 @@
                 </StackLayout>
                 <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30" Margin="0, 0, 0, 0">
                     <StackLayout Orientation="Horizontal">
-                        <local1:CustomEditor Text="{Binding Description, Mode=TwoWay}" HeightRequest="100" Placeholder="It is a great/bad place, because...." TextColor="black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="20,0,20,0"/>
+                        <local1:CustomEditor Text="{Binding Description, Mode=TwoWay}" HeightRequest="100" Placeholder="Хареса ми, защото..." TextColor="black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="20,0,20,0"/>
                     </StackLayout>
                 </Frame>
-                <Label Text="Choose where you have been:"/>
+                <Label Text="Къде се намира забележителността:"/>
                 <maps:Map x:Name="MyMap" HeightRequest="300">
                 </maps:Map>
                 <StackLayout Orientation="Horizontal" Margin="0, 10, 0, 20">
-                    <Label HorizontalTextAlignment="Center" Text="At the moment of submitting this, I am at the chosen place"/>
+                    <Label HorizontalTextAlignment="Center" Text="В момента на изпращането, аз се намирам на избраното място"/>
                     <CheckBox x:Name="Checkbox" Margin="0, 0, 20, 0"/>
                 </StackLayout>
             </StackLayout>

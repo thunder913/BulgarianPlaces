@@ -31,19 +31,19 @@ namespace BulgarianPlaces.ViewModels
             Application.Current.Properties.TryGetValue("token", out var token);
             if (string.IsNullOrWhiteSpace(this.Email) || !Regex.IsMatch(this.Email, @"^[^@\s]+@[^@\s]+\.[^@\s]+$", RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(250)))
             {
-                await this.DisplayAlert("You have entered an invalid email!");
+                await this.DisplayAlert("Въвел си неправилен имейл!");
                 return;
             }
             else if (string.IsNullOrWhiteSpace(this.Password) || this.Password.Length < 6)
             {
-                await this.DisplayAlert("The password must be at least 6 characters long!");
+                await this.DisplayAlert("Паролата трябва да е дълга поне 6 символа");
                 return;
             }
             Uri uri = new Uri(string.Format(GlobalConstants.Url + $"User/login?email={this.Email}&password={this.Password}"));
             var result = await client.PostAsync(uri, null);
             if (result.StatusCode == System.Net.HttpStatusCode.BadRequest)
             {
-                await this.DisplayAlert("There is already a user registered with this email. Try again!");
+                await this.DisplayAlert("Не съществува потребител с зададените имейл и парола!");
                 return;
             }
             var response = await result.Content.ReadAsStringAsync();

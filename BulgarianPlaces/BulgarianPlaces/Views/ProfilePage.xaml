@@ -6,12 +6,12 @@
              Shell.TabBarIsVisible="True">
     
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add" Command="{Binding AddNewReview}"/>
+        <ToolbarItem Text="Добави" Command="{Binding AddNewReview}"/>
     </ContentPage.ToolbarItems>
     
     <ContentPage.Content>
             <StackLayout Margin="10,10,10,0">
-            <Button IsVisible="{Binding ShowSignOut}" Text="Sign out" WidthRequest="100" HorizontalOptions="End" CornerRadius="20" BackgroundColor="DarkRed" Clicked="OnButtonClicked"/>
+            <Button IsVisible="{Binding ShowSignOut}" Text="Излез от профила" WidthRequest="100" HorizontalOptions="End" CornerRadius="20" BackgroundColor="DarkRed" Clicked="OnButtonClicked"/>
             <Grid
             RowSpacing="20"
             >
@@ -74,9 +74,9 @@
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
                         <Label HorizontalOptions="CenterAndExpand" Text="{Binding Profile.Visited}" Grid.Column="0" Grid.Row="0" FontSize="30"/>
-                        <Label HorizontalOptions="CenterAndExpand" Text="visited" Grid.Column="0" Grid.Row="1" FontSize="18"/>
+                        <Label HorizontalOptions="CenterAndExpand" Text="посетени" Grid.Column="0" Grid.Row="1" FontSize="18"/>
                         <Label HorizontalOptions="CenterAndExpand" Text="{Binding Profile.VisitedLastMonth}" Grid.Column="1" Grid.Row="0" FontSize="30"/>
-                        <Label HorizontalOptions="CenterAndExpand" Text="this month" Grid.Column="1" Grid.Row="1" FontSize="18"/>
+                        <Label HorizontalOptions="CenterAndExpand" Text="този месец" Grid.Column="1" Grid.Row="1" FontSize="18"/>
                     </Grid>
                     <ListView x:Name="PlacesVisited"
                     ItemsSource="{Binding Profile.PlacesVisited}"
@@ -88,9 +88,9 @@
                     >
                         <ListView.Header>
                             <StackLayout Orientation="Horizontal" VerticalOptions="Start">
-                                <Label Text="Place" HorizontalOptions="StartAndExpand"/>
-                                <Label Text="Rating" HorizontalOptions="Center"/>
-                                <Label Text="Date" HorizontalOptions="EndAndExpand"/>
+                                <Label Text="Забележителност" HorizontalOptions="StartAndExpand"/>
+                                <Label Text="Оценка" HorizontalOptions="Center"/>
+                                <Label Text="Дата" HorizontalOptions="EndAndExpand"/>
                             </StackLayout>
                         </ListView.Header>
                         <ListView.ItemTemplate>
@@ -106,7 +106,7 @@
                                             <ColumnDefinition/>
                                         </Grid.ColumnDefinitions>
                                         <Label Text="{Binding PlaceName}" Grid.Column="0" Grid.Row="0" HorizontalOptions="Start" VerticalOptions="Center"/>
-                                        <Label Text="{Binding Rating}" Grid.Column="1" Grid.Row="0" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                        <Label Text="{Binding Rating}" Padding="90, 0, 0, 0" Grid.Column="1" Grid.Row="0" HorizontalOptions="Center" VerticalOptions="Center"/>
                                         <Label Text="{Binding Date}" Grid.Column="2" Grid.Row="0" HorizontalOptions="EndAndExpand" VerticalOptions="Center"/>
                                     </Grid>
                                 </ViewCell>

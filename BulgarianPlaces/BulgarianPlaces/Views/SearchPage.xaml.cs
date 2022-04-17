@@ -19,7 +19,7 @@ namespace BulgarianPlaces.Views
         public SearchPage()
         {
             InitializeComponent();
-            Title = "Search people and landmarks";
+            Title = "Търси хора и забележителности";
             BindingContext = new SearchViewModel();
         }
 

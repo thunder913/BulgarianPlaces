@@ -27,17 +27,17 @@ namespace BulgarianPlaces.ViewModels
         {
             if(string.IsNullOrWhiteSpace(this.Email) || !Regex.IsMatch(this.Email, @"^[^@\s]+@[^@\s]+\.[^@\s]+$", RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(250)))
             {
-                await this.DisplayAlert("You have entered an invalid email!");
+                await this.DisplayAlert("Въвел си невалиден имейл!");
                 return;
             }
             else if (this.Password != this.ConfirmPassword)
             {
-                await this.DisplayAlert("The passwords don't match!");
+                await this.DisplayAlert("Паролите не са еднакви!");
                 return;
             }
             else if (string.IsNullOrWhiteSpace(this.Password) || this.Password.Length < 6)
             {
-                await this.DisplayAlert("The password must be at least 6 characters long!");
+                await this.DisplayAlert("Паролата трябва да е дълга поне 6 символа!");
                 return;
             }
 
@@ -45,7 +45,7 @@ namespace BulgarianPlaces.ViewModels
             var result = await client.PostAsync(uri, null);
             if (result.StatusCode == System.Net.HttpStatusCode.BadRequest)
             {
-                await this.DisplayAlert("There is already a user registered with this email. Try again!");
+                await this.DisplayAlert("Вече има регистриран потребител с този имейл. Опитай отново!");
                 return;
             }
             var id = int.Parse(await result.Content.ReadAsStringAsync());

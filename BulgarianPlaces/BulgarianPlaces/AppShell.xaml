@@ -31,20 +31,20 @@
     </Shell.Resources>
 
     <TabBar x:Name="AppTabBar">
-        <Tab Title="Profile" Icon="profile.png"  >
+        <Tab Title="Профил" Icon="profile.png"  >
             <ShellContent Route="ProfilePage" ContentTemplate="{DataTemplate local:ProfilePage}"/>
         </Tab>
-        <Tab Title="Ranking" Icon="ranking.png" Route="RankingPage">
-            <ShellContent Route="LastWeekRankingPage" Title="Last week"
+        <Tab Title="Класация" Icon="ranking.png" Route="RankingPage">
+            <ShellContent Route="LastWeekRankingPage" Title="Седмица"
                          ContentTemplate="{DataTemplate ranking:LastWeekRanking}" />
-            <ShellContent Route="LastMonthRankingPage" Title="Last Month"
+            <ShellContent Route="LastMonthRankingPage" Title="Месец"
                          ContentTemplate="{DataTemplate ranking:LastMonthRanking}" />
-            <ShellContent Route="LastYearRankingPage" Title="Last Yearly"
+            <ShellContent Route="LastYearRankingPage" Title="Година"
                          ContentTemplate="{DataTemplate ranking:LastYearRanking}" />
-            <ShellContent Route="AllTimeRankingPage" Title="All time"
+            <ShellContent Route="AllTimeRankingPage" Title="Общо от началото"
                          ContentTemplate="{DataTemplate ranking:AllTimeRankingPage}" />
         </Tab>
-        <Tab Title="Search" Icon="search.png" >
+        <Tab Title="Търсачка" Icon="search.png" >
             <ShellContent Route="SearchPage" ContentTemplate="{DataTemplate local:SearchPage}"/>
         </Tab>
     </TabBar>

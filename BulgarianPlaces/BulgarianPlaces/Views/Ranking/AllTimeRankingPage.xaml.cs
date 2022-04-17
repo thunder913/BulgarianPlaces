@@ -25,7 +25,7 @@ namespace BulgarianPlaces.Views.Ranking
             BindingContext = new RankingViewModel();
 
             // TODO refactor all the ranking classes and make them reuse same interface
-            Title = "Ranking";
+            Title = "Класация";
         }
         protected override void OnAppearing()
         {

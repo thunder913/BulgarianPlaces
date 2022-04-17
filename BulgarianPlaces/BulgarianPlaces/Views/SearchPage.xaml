@@ -7,13 +7,13 @@
              Shell.TabBarIsVisible="True">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add" Command="{Binding AddNewReview}"/>
+        <ToolbarItem Text="Добави" Command="{Binding AddNewReview}"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
             <SearchBar
                 x:Name="searchBar"
-                Placeholder="Search..."
+                Placeholder="Търси..."
                 CancelButtonColor="Black"
                 SearchCommand="{Binding PerformSearch}"
                 SearchCommandParameter="{Binding Text, Source={x:Reference searchBar}}"/>
@@ -27,9 +27,9 @@
                     >
                 <ListView.Header>
                     <StackLayout Orientation="Horizontal" VerticalOptions="Start">
-                        <Label Text="Image" HorizontalOptions="CenterAndExpand"/>
-                        <Label Text="Name" HorizontalOptions="StartAndExpand"/>
-                        <Label Text="Rating/Places Visited" HorizontalOptions="EndAndExpand"/>
+                        <Label Text="Снимка" HorizontalOptions="CenterAndExpand"/>
+                        <Label Text="Име" HorizontalOptions="StartAndExpand"/>
+                        <Label Text="Оценка/посещения" HorizontalOptions="EndAndExpand"/>
                     </StackLayout>
                 </ListView.Header>
                 <ListView.ItemTemplate>

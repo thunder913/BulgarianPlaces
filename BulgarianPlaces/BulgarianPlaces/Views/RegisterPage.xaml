@@ -7,7 +7,8 @@
              xmlns:local="clr-namespace:BulgarianPlaces.Models" xmlns:viewmodels="clr-namespace:BulgarianPlaces.ViewModels" 
              x:DataType="viewmodels:RegisterViewModel"
              x:Class="BulgarianPlaces.Views.RegisterPage"
-             Shell.NavBarIsVisible="False">
+             Shell.NavBarIsVisible="False"
+             Shell.TabBarIsVisible="False">
     <StackLayout BackgroundColor="#e6e6e6">
         <Grid>
             <StackLayout Padding="0" Margin="0" HorizontalOptions="FillAndExpand">
@@ -20,7 +21,7 @@
                     <ScrollView>
                     <StackLayout>
                         <StackLayout Margin="10">
-                            <Label Text="SIGN UP" TextColor="Black" HorizontalOptions="CenterAndExpand" FontAttributes="Bold"/>
+                            <Label Text="Регистрирай се" TextColor="Black" HorizontalOptions="CenterAndExpand" FontAttributes="Bold"/>
                         </StackLayout>
 
                         <StackLayout Padding="0" Margin="15,10">
@@ -31,7 +32,7 @@
                                         <Image Source="https://www.findool.com/images/avatars/avatar.png" Aspect="AspectFill" Margin="0"/>
                                     </Frame>
 
-                                    <local:CustomEntry Text="{Binding Email, Mode=TwoWay}" x:Name="Email" Placeholder="Email" TextColor="black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                                    <local:CustomEntry Text="{Binding Email, Mode=TwoWay}" x:Name="Email" Placeholder="Имейл" TextColor="black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
                                 </StackLayout>
                             </Frame>
 
@@ -61,7 +62,7 @@
                                         <Image Source="https://images.all-free-download.com/images/graphicthumb/lock_icon_6813906.jpg" Aspect="AspectFill" Margin="0"/>
                                     </Frame>
 
-                                    <local:CustomEntry Text="{Binding Password, Mode=TwoWay}" x:Name="Password" Placeholder="Password" IsPassword="True" TextColor="black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                                    <local:CustomEntry Text="{Binding Password, Mode=TwoWay}" x:Name="Password" Placeholder="Парола" IsPassword="True" TextColor="black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
                                 </StackLayout>
                             </Frame>
 
@@ -72,15 +73,15 @@
                                         <Image Source="https://images.all-free-download.com/images/graphicthumb/lock_icon_6813906.jpg" Aspect="AspectFill" Margin="0"/>
                                     </Frame>
 
-                                    <local:CustomEntry Text="{Binding ConfirmPassword, Mode=TwoWay}" x:Name="ConfirmPassword" Placeholder="Confirm Password" IsPassword="True" TextColor="black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                                    <local:CustomEntry Text="{Binding ConfirmPassword, Mode=TwoWay}" x:Name="ConfirmPassword" Placeholder="Потвърди паролата" IsPassword="True" TextColor="black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
                                 </StackLayout>
                             </Frame>
 
 
-                                <Button Command="{Binding RegisterCommand}" Text="SIGN UP" BackgroundColor="#123ac7" TextColor="White" CornerRadius="30" />
+                                <Button Command="{Binding RegisterCommand}" Text="Регистрирай се" BackgroundColor="#123ac7" TextColor="White" CornerRadius="30" />
                             <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-                                <Label Text="Already have an account?" TextColor="DarkGray" FontSize="Small"/>
-                                    <Button Command="{Binding SignInCommand}" BackgroundColor="Transparent" Padding="0" WidthRequest="60" HeightRequest="20" Text="Sign In" TextColor="blue" FontAttributes="Bold" FontSize="Small" />
+                                <Label Text="Вече имаш акаунт?" TextColor="DarkGray" FontSize="Small"/>
+                                    <Button Command="{Binding SignInCommand}" BackgroundColor="Transparent" Padding="0" WidthRequest="60" HeightRequest="20" Text="Влез" TextColor="blue" FontAttributes="Bold" FontSize="Small" />
                             </StackLayout>
                         </StackLayout>
                     </StackLayout>

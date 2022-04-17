@@ -5,7 +5,7 @@
              xmlns:local="clr-namespace:BulgarianPlaces.ViewModels.Ranking" 
              Shell.TabBarIsVisible="True">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add" Command="{Binding AddNewReview}"/>
+        <ToolbarItem Text="Добави" Command="{Binding AddNewReview}"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <ListView x:Name="PeopleView"
@@ -13,10 +13,10 @@
             ItemTapped="PeopleView_ItemTapped">
             <ListView.Header>
                 <StackLayout Orientation="Horizontal" VerticalOptions="Start" Padding="10, 10, 5, 0">
-                    <Label Text="Rank"/>
-                    <Label Text="Image" Padding="10, 0, 0, 0"/>
-                    <Label Text="Name" Padding="15, 0, 0, 0"/>
-                    <Label Text="Places" HorizontalOptions="EndAndExpand"/>
+                    <Label Text="Място"/>
+                    <Label Text="Снимка" Padding="10, 0, 0, 0"/>
+                    <Label Text="Име" Padding="15, 0, 0, 0"/>
+                    <Label Text="Посещения" HorizontalOptions="EndAndExpand"/>
                 </StackLayout>
             </ListView.Header>
             <ListView.ItemTemplate>
@@ -27,8 +27,8 @@
                                 <RowDefinition Height="15*"/>
                             </Grid.RowDefinitions>
                             <Label Text="{Binding Rank}" Grid.Column="0" Grid.Row="0" HorizontalOptions="Start" Padding="20, 0, 0, 0" VerticalOptions="Center"/>
-                            <Image Source="{Binding Image}" Grid.Column="0" Grid.Row="0" HorizontalOptions="Start" Margin="50, 0, 0, 0" WidthRequest="50" VerticalOptions="Center"/>
-                            <Label Text="{Binding Name}" Grid.Column="0" Grid.Row="0" HorizontalOptions="Start" Padding="115, 0, 0, 0" VerticalOptions="Center"/>
+                            <Image Source="{Binding Image}" Grid.Column="0" Grid.Row="0" HorizontalOptions="Start" Margin="70, 0, 0, 0" WidthRequest="50" VerticalOptions="Center"/>
+                            <Label Text="{Binding Name}" Grid.Column="0" Grid.Row="0" HorizontalOptions="Start" Padding="135, 0, 0, 0" VerticalOptions="Center"/>
                             <Label Text="{Binding PlacesVisited}" HorizontalOptions="EndAndExpand" VerticalOptions="Center" Padding="0, 0, 25, 0"/>
                         </Grid>
                     </ViewCell>

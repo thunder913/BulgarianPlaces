@@ -18,7 +18,7 @@ namespace BulgarianPlaces.Views
         {
             InitializeComponent();
             this.BindingContext = vm = new PlaceViewModel();
-            Title = "Place";
+            Title = "Забележителност";
         }
 
         private async void Button_Clicked(object sender, EventArgs e)

@@ -27,7 +27,6 @@ namespace BulgarianPlaces
             Routing.RegisterRoute(nameof(ItemDetailPage), typeof(ItemDetailPage));
             Routing.RegisterRoute(nameof(NewItemPage), typeof(NewItemPage));
             Routing.RegisterRoute(nameof(LoginPage), typeof(LoginPage));
-            Routing.RegisterRoute(nameof(AboutPage), typeof(AboutPage));
             Routing.RegisterRoute(nameof(RegisterPage), typeof(RegisterPage));
             Routing.RegisterRoute(nameof(ProfilePage), typeof(ProfilePage));
             Routing.RegisterRoute(nameof(PlaceVisitedPage), typeof(PlaceVisitedPage));
@@ -71,7 +70,7 @@ namespace BulgarianPlaces
                             {
                                 AppShell.RootTab.Items.Insert(2, new Tab()
                                 {
-                                    Title = "Admin",
+                                    Title = "Админ",
                                     Icon = "admin.png",
                                     Items =
                                     {

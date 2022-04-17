@@ -4,7 +4,7 @@
              xmlns:viewmodels="clr-namespace:BulgarianPlaces.ViewModels" x:DataType="viewmodels:ImageViewModel"
              x:Class="BulgarianPlaces.Views.ImagePage"
              Shell.TabBarIsVisible="True"
-             Title="Image">
+             Title="Снимка">
     <ContentPage.Content>
         <StackLayout>
             <Image Source="{Binding Image}" x:Name="MyImage" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">

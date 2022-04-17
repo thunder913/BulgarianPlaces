@@ -5,7 +5,7 @@
              xmlns:local="clr-namespace:BulgarianPlaces.Models"
              x:Class="BulgarianPlaces.Views.AdminApprovalPage"
              Shell.TabBarIsVisible="True"
-             Title="Review">
+             Title="Ревю">
     <ContentPage.Content>
         <ScrollView InputTransparent="True">
             <StackLayout Margin="20, 0, 20, 0">
@@ -13,7 +13,7 @@
                 <Label HorizontalOptions="StartAndExpand" Text="{Binding Request.Name}" Padding="5, 0, 0, 0" FontSize="28"/>
                 <Label HorizontalOptions="StartAndExpand" Text="{Binding Request.Email}" Padding="5, 0, 0, 0" FontSize="16"/>
                 <StackLayout Orientation="Horizontal" Margin="0, 10, 0, 20">
-                    <Label  HorizontalTextAlignment="Center" Text="At the moment of submitting this, I am at the chosen place"/>
+                    <Label  HorizontalTextAlignment="Center" Text="В момента на изпращането, аз се намирам на избраното място"/>
                     <CheckBox Margin="0, 0, 20, 0" IsChecked="{Binding Request.Checkbox}" IsEnabled="False"/>
                 </StackLayout>
                 <maps:Map x:Name="MyMap" HeightRequest="300">
@@ -39,7 +39,7 @@
                 </Frame>
                 <SearchBar
                 x:Name="searchBar"
-                Placeholder="Search..."
+                Placeholder="Търси..."
                 CancelButtonColor="Black"
                 SearchCommand="{Binding PerformSearch}"
                 SearchCommandParameter="{Binding Text, Source={x:Reference searchBar}}"
@@ -74,7 +74,7 @@
                     </ListView.ItemTemplate>
                 </ListView>
                 <Label Text="or"/>
-                <Entry Placeholder="Add a new place" Text="{Binding NewPlace, Mode=TwoWay}" TextChanged="Entry_TextChanged"/>
+                <Entry Placeholder="Добави ново място" Text="{Binding NewPlace, Mode=TwoWay}" TextChanged="Entry_TextChanged"/>
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition/>
@@ -83,8 +83,8 @@
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <Button Grid.Row="0" Grid.Column="0" Text="Accept" Background="green" Margin="20" CornerRadius="200" Clicked="AcceptButtonClicked"/>
-                    <Button Grid.Row="0" Grid.Column="1" Text="Decline" Background="red" Margin="20" CornerRadius="200" Clicked="DeclineButtonClicked"/>
+                    <Button Grid.Row="0" Grid.Column="0" Text="ПРИЕМИ" Background="green" Margin="20" CornerRadius="200" Clicked="AcceptButtonClicked"/>
+                    <Button Grid.Row="0" Grid.Column="1" Text="ОТХВЪРЛИ" Background="red" Margin="20" CornerRadius="200" Clicked="DeclineButtonClicked"/>
                 </Grid>
             </StackLayout>
         </ScrollView>

@@ -6,7 +6,8 @@
              mc:Ignorable="d"
              xmlns:local="clr-namespace:BulgarianPlaces.Models"
              x:Class="BulgarianPlaces.Views.LoginPage"
-             Shell.NavBarIsVisible="False">
+             Shell.NavBarIsVisible="False"
+             Shell.TabBarIsVisible="False">
     <!-- Main structure-->
     <StackLayout BackgroundColor="#e6e6e6">
         <Grid>
@@ -19,7 +20,7 @@
                 <Frame CornerRadius="25" BackgroundColor="White" HeightRequest="300" HasShadow="True" Padding="0" Margin="0">
                     <StackLayout>
                         <StackLayout Margin="10">
-                            <Label Text="SIGN IN" TextColor="Black" HorizontalOptions="CenterAndExpand" FontAttributes="Bold"/>
+                            <Label Text="Влез в приложението" TextColor="Black" HorizontalOptions="CenterAndExpand" FontAttributes="Bold"/>
                         </StackLayout>
 
                         <StackLayout Padding="0" Margin="15,10">
@@ -30,7 +31,7 @@
                                         <Image Source="https://www.findool.com/images/avatars/avatar.png" Aspect="AspectFill" Margin="0"/>
                                     </Frame>
 
-                                    <local:CustomEntry Text="{Binding Email, Mode=TwoWay}" Placeholder="Email" TextColor="black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                                    <local:CustomEntry Text="{Binding Email, Mode=TwoWay}" Placeholder="Имейл" TextColor="black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
                                 </StackLayout>
                             </Frame>
 
@@ -40,7 +41,7 @@
                                         <Image Source="https://images.all-free-download.com/images/graphicthumb/lock_icon_6813906.jpg" Aspect="AspectFill" Margin="0"/>
                                     </Frame>
 
-                                    <local:CustomEntry Text="{Binding Password, Mode=TwoWay}" Placeholder="Password" IsPassword="True" TextColor="black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                                    <local:CustomEntry Text="{Binding Password, Mode=TwoWay}" Placeholder="Парола" IsPassword="True" TextColor="black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
                                 </StackLayout>
                             </Frame>
 
@@ -51,10 +52,10 @@
 
                             </StackLayout>-->
 
-                            <Button Command="{Binding LoginCommand}" Text="SIGN IN" BackgroundColor="blue" TextColor="White" CornerRadius="30" />
+                            <Button Command="{Binding LoginCommand}" Text="Вход" BackgroundColor="blue" TextColor="White" CornerRadius="30" />
                             <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-                                <Label Text="Still Not Connected ?" TextColor="DarkGray" FontSize="Small"/>
-                                <Button Command="{Binding RegisterCommand}" BackgroundColor="Transparent" Padding="0" WidthRequest="60" HeightRequest="20" Text="Sign Up" TextColor="blue" FontAttributes="Bold" FontSize="Small" />
+                                <Label Text="Все още нямаш акаунт?" TextColor="DarkGray" FontSize="Small"/>
+                                <Button Command="{Binding RegisterCommand}" BackgroundColor="Transparent" Padding="0" WidthRequest="120" HeightRequest="20" Text="Регистрирай се" TextColor="blue" FontAttributes="Bold" FontSize="Small" />
                             </StackLayout>
                         </StackLayout>
                     </StackLayout>
