@@ -25,7 +25,7 @@ namespace BulgarianPlaces.Views
         {
             InitializeComponent();
             BindingContext = vm = new AdminApprovalViewModel(MyMap);
-            Title = "Request Approval";
+            Title = "Одобряване на ревю";
         }
 
         public async void OnItemSelected(object item, SelectedItemChangedEventArgs e)
@@ -102,7 +102,7 @@ namespace BulgarianPlaces.Views
             }
             else
             {
-                await Shell.Current.GoToAsync($"..");
+                await CompleteButtonClickAsync("Успешно одобри ревюто!");
             }
         }
 
@@ -115,7 +115,7 @@ namespace BulgarianPlaces.Views
             form.Add(new StringContent(Application.Current.Properties["token"].ToString()), "jwtToken");
             var result = await vm.client.PostAsync(uri, form);
             var responseAsString = await result.Content.ReadAsStringAsync();
-            await Shell.Current.GoToAsync($"..");
+            await CompleteButtonClickAsync("Успешно отхвърли ревюто!");
         }
 
         private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
@@ -123,6 +123,15 @@ namespace BulgarianPlaces.Views
             var url = $"//{nameof(AdminPage)}/{nameof(AdminApprovalPage)}?id=" + vm.Id;
             var encodedUrl = HttpUtility.UrlEncode(url);
             await Shell.Current.GoToAsync($"/{nameof(ImagePage)}?ImageSource={vm.Request.Image}&Route={encodedUrl}");
+        }
+
+        private async Task CompleteButtonClickAsync(string text)
+        {
+            var alertResult = await this.DisplayAlert("Успех", text, null, "OK");
+            if (!alertResult)
+            {
+                await Shell.Current.Navigation.PopToRootAsync();
+            }
         }
     }
 }

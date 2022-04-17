@@ -19,7 +19,7 @@ namespace BulgarianPlaces.Views
         }
         public async Task DisplayAlert(string text)
         {
-            await this.DisplayAlert("Error", text, "OK");
+            await this.DisplayAlert("Грешка", text, "OK");
         }
     }
 }
