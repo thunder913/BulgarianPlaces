@@ -1,5 +1,6 @@
 ﻿using BulgarianPlaces.ViewModels;
 using System;
+using System.Web;
 using Xamarin.Forms;
 
 namespace BulgarianPlaces.Views
@@ -33,8 +34,17 @@ namespace BulgarianPlaces.Views
 
         async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
-            var stack = Shell.Current.Navigation.NavigationStack;
-            await Shell.Current.GoToAsync($"{nameof(ImagePage)}?ImageSource=" + vm.Place.Image);
+            string url = string.Empty;
+            if (vm.IsMyProfile)
+            {
+                url = $"//{nameof(ProfilePage)}/{nameof(PlaceVisitedPage)}?Id=" + vm.Id;
+            }
+            else
+            {
+                url = $"//LastWeekRankingPage/{nameof(ProfilePage)}/{nameof(PlaceVisitedPage)}?Id=" + vm.Id;
+            }
+            var encodedUrl = HttpUtility.UrlEncode(url);
+            await Shell.Current.GoToAsync($"/{nameof(ImagePage)}?ImageSource={vm.Place.Image}&Route={encodedUrl}");
         }
 
         //private void TapGestureRecognizer_Tapped(object sender, EventArgs e)

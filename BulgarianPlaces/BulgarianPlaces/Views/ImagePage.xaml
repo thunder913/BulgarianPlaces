@@ -5,6 +5,9 @@
              x:Class="BulgarianPlaces.Views.ImagePage"
              Shell.TabBarIsVisible="True"
              Title="Снимка">
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior Command="{Binding BackCommand}"/>
+    </Shell.BackButtonBehavior>
     <ContentPage.Content>
         <StackLayout>
             <Image Source="{Binding Image}" x:Name="MyImage" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">

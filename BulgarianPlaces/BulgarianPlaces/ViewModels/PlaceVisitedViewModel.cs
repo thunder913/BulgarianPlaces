@@ -10,6 +10,7 @@ using Xamarin.Forms;
 namespace BulgarianPlaces.ViewModels
 {
     [QueryProperty(nameof(Id), nameof(Id))]
+    [QueryProperty(nameof(IsMyProfile), nameof(IsMyProfile))]
     public class PlaceVisitedViewModel : BaseViewModel
     {
         public Action<int, Color> ChangeColor { get; set; }
@@ -17,7 +18,15 @@ namespace BulgarianPlaces.ViewModels
         {
             this.ChangeColor = changeColor;
         }
-
+        private bool isMyProfile { get; set; }
+        public bool IsMyProfile
+        {
+            get => isMyProfile;
+            set
+            {
+                this.isMyProfile = value;
+            }
+        }
         private HttpClient client = new HttpClient();
         private int id;
         public int Id

@@ -9,7 +9,7 @@ using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Web;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;
 using Xamarin.Forms.Xaml;
@@ -120,7 +120,9 @@ namespace BulgarianPlaces.Views
 
         private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
-            await Shell.Current.GoToAsync($"/{nameof(ImagePage)}?ImageSource=" + vm.Request.Image);
+            var url = $"//{nameof(AdminPage)}/{nameof(AdminApprovalPage)}?id=" + vm.Id;
+            var encodedUrl = HttpUtility.UrlEncode(url);
+            await Shell.Current.GoToAsync($"/{nameof(ImagePage)}?ImageSource={vm.Request.Image}&Route={encodedUrl}");
         }
     }
 }
