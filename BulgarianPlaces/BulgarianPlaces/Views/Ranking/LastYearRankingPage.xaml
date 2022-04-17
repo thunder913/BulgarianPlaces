@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="BulgarianPlaces.Views.Ranking.LastYearRanking"
+             x:Class="BulgarianPlaces.Views.Ranking.LastYearRankingPage"
              xmlns:local="clr-namespace:BulgarianPlaces.ViewModels.Ranking"
              Shell.TabBarIsVisible="True">
     <ContentPage.ToolbarItems>

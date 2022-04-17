@@ -36,9 +36,9 @@ namespace BulgarianPlaces
             Routing.RegisterRoute(nameof(FirstTimePage), typeof(FirstTimePage));
 
             //Ranking pages
-            Routing.RegisterRoute(nameof(LastWeekRanking), typeof(LastWeekRanking));
-            Routing.RegisterRoute(nameof(LastMonthRanking), typeof(LastMonthRanking));
-            Routing.RegisterRoute(nameof(LastYearRanking), typeof(LastYearRanking));
+            Routing.RegisterRoute(nameof(LastWeekRankingPage), typeof(LastWeekRankingPage));
+            Routing.RegisterRoute(nameof(LastMonthRankingPage), typeof(LastMonthRankingPage));
+            Routing.RegisterRoute(nameof(LastYearRankingPage), typeof(LastYearRankingPage));
             Routing.RegisterRoute(nameof(AllTimeRankingPage), typeof(AllTimeRankingPage));
             Routing.RegisterRoute(nameof(SearchPage), typeof(SearchPage));
 

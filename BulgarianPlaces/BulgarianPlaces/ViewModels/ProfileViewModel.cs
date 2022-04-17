@@ -12,11 +12,21 @@ using Xamarin.Forms;
 namespace BulgarianPlaces.ViewModels
 {
     [QueryProperty(nameof(Id), nameof(Id))]
+    [QueryProperty(nameof(PreviousPage), nameof(PreviousPage))]
     public class ProfileViewModel : BaseViewModel
     {
         public Command AddNewReview { get; }
         public bool ShowSignOut { get; set; }
         public int? UserId { get; set; }
+        private string previousPage { get; set; }
+        public string PreviousPage
+        {
+            get => previousPage;
+            set
+            {
+                previousPage = value;
+            }
+        }
         private string id;
         public string Id
         {

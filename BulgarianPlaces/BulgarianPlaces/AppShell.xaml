@@ -36,11 +36,11 @@
         </Tab>
         <Tab Title="Класация" Icon="ranking.png" Route="RankingPage">
             <ShellContent Route="LastWeekRankingPage" Title="Седмица"
-                         ContentTemplate="{DataTemplate ranking:LastWeekRanking}" />
+                         ContentTemplate="{DataTemplate ranking:LastWeekRankingPage}" />
             <ShellContent Route="LastMonthRankingPage" Title="Месец"
-                         ContentTemplate="{DataTemplate ranking:LastMonthRanking}" />
+                         ContentTemplate="{DataTemplate ranking:LastMonthRankingPage}" />
             <ShellContent Route="LastYearRankingPage" Title="Година"
-                         ContentTemplate="{DataTemplate ranking:LastYearRanking}" />
+                         ContentTemplate="{DataTemplate ranking:LastYearRankingPage}" />
             <ShellContent Route="AllTimeRankingPage" Title="Общо от началото"
                          ContentTemplate="{DataTemplate ranking:AllTimeRankingPage}" />
         </Tab>

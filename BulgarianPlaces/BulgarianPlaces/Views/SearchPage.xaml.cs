@@ -31,11 +31,11 @@ namespace BulgarianPlaces.Views
 
             if (search.SearchType == SearchResultType.Person)
             {
-                await Shell.Current.GoToAsync($"//SearchPage/{nameof(ProfilePage)}?{nameof(search.Id)}={search.Id}");
+                await Shell.Current.GoToAsync($"//{nameof(SearchPage)}/{nameof(ProfilePage)}?{nameof(search.Id)}={search.Id}&PreviousPage={nameof(SearchPage)}");
             }
             else
             {
-                await Shell.Current.GoToAsync($"//SearchPage/{nameof(PlacePage)}?{nameof(search.Id)}={search.Id}");
+                await Shell.Current.GoToAsync($"//{nameof(SearchPage)}/{nameof(PlacePage)}?{nameof(search.Id)}={search.Id}");
             }
         }
     }

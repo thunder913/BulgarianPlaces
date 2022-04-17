@@ -14,11 +14,11 @@ using Xamarin.Forms.Xaml;
 namespace BulgarianPlaces.Views.Ranking
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class LastMonthRanking : ContentPage
+    public partial class LastMonthRankingPage : ContentPage
     {
         public HttpClient client = new HttpClient();
         public ObservableCollection<RankingUserDto> People { get; set; } = new ObservableCollection<RankingUserDto>();
-        public LastMonthRanking()
+        public LastMonthRankingPage()
         {
             InitializeComponent();
             PeopleView.ItemsSource = People;
@@ -46,7 +46,7 @@ namespace BulgarianPlaces.Views.Ranking
         private async void PeopleView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             var selectedItem = (RankingUserDto)((ListView)sender).SelectedItem;
-            await Shell.Current.GoToAsync($"//LastMonthRankingPage/{nameof(ProfilePage)}?Id=" + selectedItem.Id);
+            await Shell.Current.GoToAsync($"//{nameof(LastMonthRankingPage)}/{nameof(ProfilePage)}?Id={selectedItem.Id}&PreviousPage={nameof(LastMonthRankingPage)}");
         }
     }
 }

@@ -35,13 +35,13 @@ namespace BulgarianPlaces.Views
         async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
             string url = string.Empty;
-            if (vm.IsMyProfile)
+            if (string.IsNullOrWhiteSpace(vm.PreviousPage))
             {
                 url = $"//{nameof(ProfilePage)}/{nameof(PlaceVisitedPage)}?Id=" + vm.Id;
             }
             else
             {
-                url = $"//LastWeekRankingPage/{nameof(ProfilePage)}/{nameof(PlaceVisitedPage)}?Id=" + vm.Id;
+                url = $"//{vm.PreviousPage}/{nameof(ProfilePage)}/{nameof(PlaceVisitedPage)}?Id=" + vm.Id;
             }
             var encodedUrl = HttpUtility.UrlEncode(url);
             await Shell.Current.GoToAsync($"/{nameof(ImagePage)}?ImageSource={vm.Place.Image}&Route={encodedUrl}");

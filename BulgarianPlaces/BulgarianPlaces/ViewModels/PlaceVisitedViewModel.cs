@@ -10,7 +10,7 @@ using Xamarin.Forms;
 namespace BulgarianPlaces.ViewModels
 {
     [QueryProperty(nameof(Id), nameof(Id))]
-    [QueryProperty(nameof(IsMyProfile), nameof(IsMyProfile))]
+    [QueryProperty(nameof(PreviousPage), nameof(PreviousPage))]
     public class PlaceVisitedViewModel : BaseViewModel
     {
         public Action<int, Color> ChangeColor { get; set; }
@@ -18,13 +18,13 @@ namespace BulgarianPlaces.ViewModels
         {
             this.ChangeColor = changeColor;
         }
-        private bool isMyProfile { get; set; }
-        public bool IsMyProfile
+        private string previousPage { get; set; }
+        public string PreviousPage
         {
-            get => isMyProfile;
+            get => previousPage;
             set
             {
-                this.isMyProfile = value;
+                this.previousPage = value;
             }
         }
         private HttpClient client = new HttpClient();

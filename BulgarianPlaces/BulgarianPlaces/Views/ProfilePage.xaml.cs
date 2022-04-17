@@ -27,7 +27,14 @@ namespace BulgarianPlaces.Views
                 return;
             var location = await Geolocation.GetLastKnownLocationAsync();
             var stack = Shell.Current.Navigation.NavigationStack;
-            await Shell.Current.GoToAsync($"{nameof(PlaceVisitedPage)}?{nameof(ProfilePlaceVisitedDto.Id)}={profile.Id}&IsMyProfile={vm.UserId == null}");
+            if (!string.IsNullOrWhiteSpace(vm.PreviousPage))
+            {
+                await Shell.Current.GoToAsync($"{nameof(PlaceVisitedPage)}?{nameof(ProfilePlaceVisitedDto.Id)}={profile.Id}&PreviousPage={vm.PreviousPage}");
+            }
+            else
+            {
+                await Shell.Current.GoToAsync($"{nameof(PlaceVisitedPage)}?{nameof(ProfilePlaceVisitedDto.Id)}={profile.Id}");
+            }
         }
 
         async void OnButtonClicked(object sender, EventArgs args)

@@ -29,7 +29,7 @@
                     <StackLayout Orientation="Horizontal" VerticalOptions="Start">
                         <Label Text="Снимка" HorizontalOptions="CenterAndExpand"/>
                         <Label Text="Име" HorizontalOptions="StartAndExpand"/>
-                        <Label Text="Оценка/посещения" HorizontalOptions="EndAndExpand"/>
+                        <Label Text="Оценка/Посещения" HorizontalOptions="EndAndExpand"/>
                     </StackLayout>
                 </ListView.Header>
                 <ListView.ItemTemplate>
