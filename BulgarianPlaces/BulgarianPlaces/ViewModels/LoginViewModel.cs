@@ -59,7 +59,7 @@ namespace BulgarianPlaces.ViewModels
                 {
                     AppShell.RootTab.Items.Insert(2, new Tab()
                     {
-                        Title = "Admin",
+                        Title = "Админ",
                         Icon = "admin.png",
                         Items =
                     {
