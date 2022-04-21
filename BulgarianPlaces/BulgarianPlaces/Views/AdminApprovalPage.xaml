@@ -34,6 +34,7 @@
                             HorizontalOptions="FillAndExpand" 
                             Margin="20,0,20,0"
                             IsReadOnly="True"
+                            VerticalOptions="FillAndExpand"
                             Text="{Binding Request.Description}"/>
                     </StackLayout>
                 </Frame>

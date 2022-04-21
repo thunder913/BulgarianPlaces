@@ -92,6 +92,7 @@ namespace BulgarianPlaces.Views
             var form = new MultipartFormDataContent();
             form.Add(new StringContent(vm.Id), "id");
             form.Add(new StringContent(SelectedItem?.Id.ToString() ?? string.Empty), "placeId");
+            form.Add(new StringContent(vm.NewPlace ?? string.Empty), "placeName");
             form.Add(new StringContent(Application.Current.Properties["token"].ToString()), "jwtToken");
             var result = await vm.client.PostAsync(uri, form);
             var responseAsString = await result.Content.ReadAsStringAsync();
@@ -115,6 +116,10 @@ namespace BulgarianPlaces.Views
             form.Add(new StringContent(Application.Current.Properties["token"].ToString()), "jwtToken");
             var result = await vm.client.PostAsync(uri, form);
             var responseAsString = await result.Content.ReadAsStringAsync();
+            if (result.StatusCode == HttpStatusCode.BadRequest)
+            {
+                await this.DisplayAlert("Грешка", "Нещо се обърка, моля опитай отново.", "OK");
+            }
             await CompleteButtonClickAsync("Успешно отхвърли ревюто!");
         }
 

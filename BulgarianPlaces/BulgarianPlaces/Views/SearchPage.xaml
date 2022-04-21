@@ -35,7 +35,7 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Grid>
+                            <Grid Margin="0, 3, 0, 3">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="20*"/>
                                 </Grid.RowDefinitions>
