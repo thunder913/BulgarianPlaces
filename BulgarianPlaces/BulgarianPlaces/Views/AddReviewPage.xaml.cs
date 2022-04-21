@@ -119,6 +119,10 @@ namespace BulgarianPlaces.Views
                     form.Add(new StringContent(Application.Current.Properties["token"].ToString()), "jwt");
                     form.Headers.ContentType.MediaType = "multipart/form-data";
                     var result = await client.PostAsync(uri, form);
+                    if (result.StatusCode == System.Net.HttpStatusCode.BadRequest)
+                    {
+                        throw new Exception();
+                    }
                     var responseAsString = await result.Content.ReadAsStringAsync();
                 }
                 catch (Exception)
