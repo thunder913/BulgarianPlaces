@@ -25,16 +25,16 @@
                                 Tapped="TapGestureRecognizer_Tapped"/>
                     </Image.GestureRecognizers>
                 </Image>
-                <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30" Margin="10, 0, 10, 0">
+                <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30" Margin="10, 10, 10, 0">
                     <StackLayout Orientation="Horizontal">
-                        <local:CustomEditor 
+                        <Label
                             HeightRequest="100" 
                             TextColor="black" 
                             FontAttributes="None" 
                             HorizontalOptions="FillAndExpand" 
-                            Margin="20,0,20,0"
-                            IsReadOnly="True"
+                            Margin="10,10,10,10"
                             VerticalOptions="FillAndExpand"
+                            FontSize="16"
                             Text="{Binding Request.Description}"/>
                     </StackLayout>
                 </Frame>
