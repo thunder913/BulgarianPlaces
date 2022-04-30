@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="BulgarianPlaces.ViewModels.AddReviewViewModel">
+    <Position X="2.75" Y="3.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAgAAAAAAABAAAAAgAAABAAAAAAAAAAACA=</HashCode>
+      <FileName>ViewModels\AddReviewViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BulgarianPlaces.Views.AddReviewPage">
+    <Position X="2.75" Y="7.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgBBggAAIACAAAAAAAAAEAAAAEBgAAACA=</HashCode>
+      <FileName>Views\AddReviewPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BulgarianPlaces.Views.AdminApprovalPage">
+    <Position X="6.5" Y="7.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgABAAAAIAgAAEAAAAAAAIEBAQAgAAAAA=</HashCode>
+      <FileName>Views\AdminApprovalPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BulgarianPlaces.Views.AdminPage">
+    <Position X="10.25" Y="7.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAggAAAAAAAAAAAAAAgAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Views\AdminPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BulgarianPlaces.Views.FirstTimePage">
+    <Position X="2.75" Y="16.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAIAAAAAAACAAAAAAAAEBAAAAAA=</HashCode>
+      <FileName>Views\FirstTimePage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BulgarianPlaces.Views.ImagePage">
+    <Position X="10.5" Y="30" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAABQAAgAAAgBAiAAAAAAAAAAAAgAEIAAABAAAA=</HashCode>
+      <FileName>Views\ImagePage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BulgarianPlaces.Views.LoginPage">
+    <Position X="6.5" Y="16.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\LoginPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BulgarianPlaces.Views.PlacePage">
+    <Position X="10.5" Y="16.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAAAAAAACAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Views\PlacePage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BulgarianPlaces.Views.PlaceVisitedPage">
+    <Position X="2.75" Y="23.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgBAgAAAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Views\PlaceVisitedPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BulgarianPlaces.Views.ProfilePage">
+    <Position X="6.5" Y="23.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAggAAAAAAIAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Views\ProfilePage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BulgarianPlaces.Views.RankingPage">
+    <Position X="6.5" Y="30" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAACAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\RankingPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BulgarianPlaces.Views.RegisterPage">
+    <Position X="10.5" Y="23.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\RegisterPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BulgarianPlaces.Views.SearchPage">
+    <Position X="2.75" Y="30" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\SearchPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BulgarianPlaces.ViewModels.AdminApprovalViewModel">
+    <Position X="6.5" Y="2.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AQACCBAAABAAAARAAAAAAAAEAAAAgAQAAAAABAAAAgA=</HashCode>
+      <FileName>ViewModels\AdminApprovalViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BulgarianPlaces.ViewModels.FirstTimeViewModel">
+    <Position X="2.75" Y="13" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAgAAAAAAABAAAAAAAAABAAAAAAAAAAAAg=</HashCode>
+      <FileName>ViewModels\FirstTimeViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BulgarianPlaces.ViewModels.LoginViewModel">
+    <Position X="6.5" Y="12.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAEAAAAADCAAACBACAAAA=</HashCode>
+      <FileName>ViewModels\LoginViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BulgarianPlaces.ViewModels.PlaceViewModel">
+    <Position X="10.5" Y="12.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAEAAAAAAAAAAAAAAAEAABAAABgA=</HashCode>
+      <FileName>ViewModels\PlaceViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BulgarianPlaces.ViewModels.PlaceVisitedViewModel">
+    <Position X="2.75" Y="19.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAICAAAAAAAAAgAAAAAAAAAAAAAAQAAAAEAABAACAgA=</HashCode>
+      <FileName>ViewModels\PlaceVisitedViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BulgarianPlaces.ViewModels.ProfileViewModel">
+    <Position X="6.5" Y="19" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAICAIAAAAAgAAAAAEEAAAgAAAAAAAAAABAABAACAgA=</HashCode>
+      <FileName>ViewModels\ProfileViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BulgarianPlaces.ViewModels.RegisterViewModel">
+    <Position X="10.5" Y="19.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABCAAAAAAAAAIAAAAkAAAAACCAAAABAAAIAA=</HashCode>
+      <FileName>ViewModels\RegisterViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BulgarianPlaces.ViewModels.SearchViewModel">
+    <Position X="2.75" Y="26.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAgAABAAAEAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>ViewModels\SearchViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BulgarianPlaces.ViewModels.RankingViewModel">
+    <Position X="6.5" Y="28" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\RankingViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BulgarianPlaces.ViewModels.ImageViewModel">
+    <Position X="10.5" Y="26" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACQAAAEEBAABAEAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\ImageViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
