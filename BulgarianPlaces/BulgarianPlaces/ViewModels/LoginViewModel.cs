@@ -43,7 +43,7 @@ namespace BulgarianPlaces.ViewModels
             var result = await client.PostAsync(uri, null);
             if (result.StatusCode == System.Net.HttpStatusCode.BadRequest)
             {
-                await this.DisplayAlert("Не съществува потребител с зададените имейл и парола!");
+                await this.DisplayAlert("Не съществува потребител със зададените имейл и парола!");
                 return;
             }
             var response = await result.Content.ReadAsStringAsync();
