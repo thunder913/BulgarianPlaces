@@ -128,6 +128,7 @@ namespace BulgarianPlaces.Views
                 catch (Exception)
                 {
                     await this.DisplayAlert("Грешка", "Нещо се обърка, моля опитай отново.", "OK");
+                    return;
                 }
 
                 var alertResult = await this.DisplayAlert("Успех", "Успешно си изпрати ревюто за одобрение! Когато бъде одобрено ще можеш да го видиш на профила си!", null, "OK");
